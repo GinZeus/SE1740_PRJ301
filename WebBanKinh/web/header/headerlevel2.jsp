@@ -24,7 +24,7 @@
                     <div class="col-md-4 col-xs-12 col-sm-4">
                         <!-- Site Logo -->
                         <div class="logo text-center">
-                            <a href="index.html">
+                            <a href="../home.jsp">
                                 <!-- replace logo here -->
                                 <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -32,7 +32,7 @@
                                    font-family="AustinBold, Austin" font-weight="bold">
                                 <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
                                 <text id="AVIATO">
-                                <tspan x="108.94" y="325">AVIATO</tspan>
+                                <tspan x="108.94" y="325">DATND</tspan>
                                 </text>
                                 </g>
                                 </g>
@@ -101,15 +101,9 @@
                                 </ul>
                             </li><!-- / Search -->
 
-                            <!-- Languages -->
-                            <li class="commonSelect">
-                                <select class="form-control">
-                                    <option>EN</option>
-                                    <option>DE</option>
-                                    <option>FR</option>
-                                    <option>ES</option>
-                                </select>
-                            </li><!-- / Languages -->
+                            <a href="../login.jsp">
+                                <i class="tf-ion-android-person"></i>
+                            </a>
 
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>

@@ -33,7 +33,7 @@
 
                             <!-- Home -->
                             <li class="dropdown ">
-                                <a href="index.html">Home</a>
+                                <a href="home.jsp">Home</a>
                             </li><!-- / Home -->
 
 

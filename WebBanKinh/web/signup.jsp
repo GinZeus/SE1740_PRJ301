@@ -48,8 +48,8 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-          <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="">
+          <a class="logo" href="home.jsp">
+            <img src="images/newlogo.png" alt="">
           </a>
           <h2 class="text-center">Create Your Account</h2>
           <form class="text-left clearfix" action="index.html">
@@ -73,7 +73,7 @@
             </div>
           </form>
           <p class="mt-20">Already hava an account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> Forgot your password?</a></p>
+          <p><a href="forget-password.jsp"> Forgot your password?</a></p>
         </div>
       </div>
     </div>

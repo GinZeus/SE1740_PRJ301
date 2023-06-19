@@ -53,6 +53,7 @@
         <!-- Start Main Menu Section -->
          <jsp:include page="header/menu1.jsp"></jsp:include>
          <!-- <!-- End Main Menu Section -->
+         
         <div class="hero-slider">
             <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-1.jpg);">
                 <div class="container">

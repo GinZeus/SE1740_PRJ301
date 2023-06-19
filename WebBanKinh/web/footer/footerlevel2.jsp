@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Footer</title>
     </head>
     <body>
         <div class="footer section text-center">
@@ -18,41 +18,41 @@
                     <div class="col-md-12">
                         <ul class="social-media">
                             <li>
-                                <a href="https://www.facebook.com/themefisher">
+                                <a href="https://www.facebook.com/ddat.cp2003/">
                                     <i class="tf-ion-social-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/themefisher">
+                                <a href="https://www.instagram.com/dat_coi257/">
                                     <i class="tf-ion-social-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.twitter.com/themefisher">
-                                    <i class="tf-ion-social-twitter"></i>
+                                <a href="https://github.com/GinZeus">
+                                    <i class="tf-ion-social-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.pinterest.com/themefisher/">
+                                <a href="https://www.pinterest.com/cuziluvu/">
                                     <i class="tf-ion-social-pinterest"></i>
                                 </a>
                             </li>
                         </ul>
                         <ul class="footer-menu text-uppercase">
                             <li>
-                                <a href="contact.html">CONTACT</a>
+                                <a href="../contact.jsp">CONTACT</a>
                             </li>
                             <li>
-                                <a href="shop.html">SHOP</a>
+                                <a href="../shop.jsp">SHOP</a>
                             </li>
                             <li>
-                                <a href="pricing.html">Pricing</a>
+                                <a href="../about.jsp">ABOUT US</a>
                             </li>
                             <li>
-                                <a href="contact.html">PRIVACY POLICY</a>
+                                <a href="../contact.jsp">PRIVACY POLICY</a>
                             </li>
                         </ul>
-                        <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+                        <p class="copyright-text">Demo website for eyeglasses store, Designed &amp; Developed by <a href="https://www.facebook.com/ddat.cp2003/">Duc Dat</a></p>
                     </div>
                 </div>
             </div>
