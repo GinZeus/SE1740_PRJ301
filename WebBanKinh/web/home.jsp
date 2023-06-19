@@ -26,7 +26,7 @@
         <meta name="theme-name" content="aviato" />
 
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon1.png" />
 
         <!-- Themefisher Icon font -->
         <link rel="stylesheet" href="plugins/themefisher-font/style.css">
@@ -70,8 +70,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 text-left">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">FRAME</p>
+                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The perfect frames for <br> every face, every style, every day.</h1>
                             <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
                         </div>
                     </div>
