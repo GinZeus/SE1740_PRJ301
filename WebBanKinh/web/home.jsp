@@ -59,8 +59,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 text-center">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">EYEGLASSES</p>
+                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">See the world in a whole new way <br> with our eyeglasses.</h1>
                             <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
             <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-b.jpg);">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8 text-left">
+                        <div class="col-lg-8 text-left">s
                             <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">FRAME</p>
                             <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The perfect frames for <br> every face, every style, every day.</h1>
                             <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
@@ -81,8 +81,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 text-right">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">SUNGLASSES</p>
+                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Sunglasses that speak to your style <br> and protect your eyes.</h1>
                             <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
                         </div>
                     </div>
