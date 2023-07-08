@@ -4,37 +4,39 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author datng
  */
 public class Product {
-    private String id;
+    private int id;
     private String name;
-    private String image;
+    private int category_id;
+    private int brand_id;
     private double price;
-    private String color;
-    private String material;
-    private String type;
-
-    public Product() {
+    private String imageurl;
+    private Date createTime;
+    
+    public Product(){
     }
 
-    public Product(String id, String name, String image, double price, String color, String material, String type) {
+    public Product(int id, String name, int category_id, int brand_id, double price, String imageurl, Date createTime) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.category_id = category_id;
+        this.brand_id = brand_id;
         this.price = price;
-        this.color = color;
-        this.material = material;
-        this.type = type;
+        this.imageurl = imageurl;
+        this.createTime = createTime;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,12 +48,20 @@ public class Product {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
+    public int getCategory_id() {
+        return category_id;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+    public int getBrand_id() {
+        return brand_id;
+    }
+
+    public void setBrand_id(int brand_id) {
+        this.brand_id = brand_id;
     }
 
     public double getPrice() {
@@ -62,29 +72,27 @@ public class Product {
         this.price = price;
     }
 
-    public String getColor() {
-        return color;
+    public String getImageurl() {
+        return imageurl;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
-    public String getMaterial() {
-        return material;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public String getType() {
-        return type;
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", name=" + name + ", category_id=" + category_id + ", brand_id=" + brand_id + ", price=" + price + ", imageurl=" + imageurl + ", createTime=" + createTime + '}';
     }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+    
     
     
 }

@@ -24,7 +24,7 @@
                     <div class="col-md-4 col-xs-12 col-sm-4">
                         <!-- Site Logo -->
                         <div class="logo text-center">
-                            <a href="home.jsp">
+                            <a href="homecontroll">
                                 <!-- replace logo here -->
                                 <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -45,7 +45,7 @@
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Cart</a>
+                                        class="tf-ion-android-cart"></i>Giỏ hàng</a>
                                 <div class="dropdown-menu cart-dropdown">
                                     <!-- Cart Item -->
                                     <div class="media">
@@ -79,11 +79,11 @@
                                     </div><!-- / Cart Item -->
 
                                     <div class="cart-summary">
-                                        <span>Total</span>
+                                        <span>Tổng cộng</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.jsp" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="cart.jsp" class="btn btn-small">Xem giỏ hàng</a></li>
                                         <li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
@@ -93,10 +93,10 @@
                             <!-- Search -->
                             <li class="dropdown search dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-search-strong"></i> Search</a>
+                                        class="tf-ion-ios-search-strong"></i>Tìm kiếm</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                        <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+                                        <form action="post"><input type="search" class="form-control" placeholder="Tìm kiếm..."></form>
                                     </li>
                                 </ul>
                             </li><!-- / Search -->

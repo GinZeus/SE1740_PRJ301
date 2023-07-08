@@ -1857,7 +1857,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 }
 
 .bg-1 {
-  background-image: url(../images/backgrounds/bg-1.jpg);
+  background-image: url(../images/backgrounds/bg-a.jpg);
   background-size: cover;
 }
 

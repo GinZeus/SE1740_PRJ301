@@ -4,6 +4,7 @@
     Author     : datng
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,337 +49,131 @@
 
         <!-- Start Top Header Bar -->
         <jsp:include page="header/headerlevel1.jsp"></jsp:include>
-        <!-- End Top Header Bar -->
-        
-        <!-- Start Main Menu Section -->
-         <jsp:include page="header/menu1.jsp"></jsp:include>
-        <!-- End Main Menu Section -->
-         
-        <div class="hero-slider">
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-a.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 text-center">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">EYEGLASSES</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">See the world in a whole new way <br> with our eyeglasses.</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-b.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 text-left">s
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">FRAME</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The perfect frames for <br> every face, every style, every day.</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-c.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 text-right">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">SUNGLASSES</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Sunglasses that speak to your style <br> and protect your eyes.</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <!-- End Top Header Bar -->
 
-        <section class="product-category section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
+            <!-- Start Main Menu Section -->
+        <jsp:include page="header/menu1.jsp"></jsp:include>
+            <!-- End Main Menu Section -->
+
+            <div class="hero-slider">
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-a.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-center">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">MẮT KÍNH CHÍNH HÃNG</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Sắc màu cuộc sống rực rỡ hơn <br>với kính mắt chính hãng.</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-b.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-left">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">GỌNG KÍNH ĐẸP, BỀN</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Nâng tầm phong cách <br>của bạn.</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-c.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-right">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">KÍNH RÂM CHẤT LƯỢNG CAO</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Bảo vệ mắt,<br> nâng tầm phong cách.</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="product-category section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title text-center">
+                                <h2>Product Category</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="category-box">
+                                <a href="#!">
+                                    <img src="images/shop/category/category-1.jpg" alt="" />
+                                    <div class="content">
+                                        <h3>Clothes Sales</h3>
+                                        <p>Shop New Season Clothing</p>
+                                    </div>
+                                </a>	
+                            </div>
+                            <div class="category-box">
+                                <a href="#!">
+                                    <img src="images/shop/category/category-2.jpg" alt="" />
+                                    <div class="content">
+                                        <h3>Smart Casuals</h3>
+                                        <p>Get Wide Range Selection</p>
+                                    </div>
+                                </a>	
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="category-box category-box-2">
+                                <a href="#!">
+                                    <img src="images/shop/category/category-3.jpg" alt="" />
+                                    <div class="content">
+                                        <h3>Jewellery</h3>
+                                        <p>Special Design Comes First</p>
+                                    </div>
+                                </a>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products section bg-gray">
+                <div class="container">
+                    <div class="row">
                         <div class="title text-center">
-                            <h2>Product Category</h2>
+                            <h2>Trendy Products</h2>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="category-box">
-                            <a href="#!">
-                                <img src="images/shop/category/category-1.jpg" alt="" />
-                                <div class="content">
-                                    <h3>Clothes Sales</h3>
-                                    <p>Shop New Season Clothing</p>
+                    <div class="row">
+                    <c:forEach items="${listP}" var="o">
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <div class="product-thumb">
+                                    <span class="bage">Sale</span>
+                                    <img class="img-responsive" src="${o.imageurl}" alt="product-img" />
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <span  data-toggle="modal" data-target="#product-modal">
+                                                    <i class="tf-ion-ios-search-strong"></i>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </a>	
-                        </div>
-                        <div class="category-box">
-                            <a href="#!">
-                                <img src="images/shop/category/category-2.jpg" alt="" />
-                                <div class="content">
-                                    <h3>Smart Casuals</h3>
-                                    <p>Get Wide Range Selection</p>
+                                <div class="product-content">
+                                    <h4><a href="product-single.html">${o.name}</a></h4>
+                                    <p class="price">$${o.price}</p>
                                 </div>
-                            </a>	
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="category-box category-box-2">
-                            <a href="#!">
-                                <img src="images/shop/category/category-3.jpg" alt="" />
-                                <div class="content">
-                                    <h3>Jewellery</h3>
-                                    <p>Special Design Comes First</p>
-                                </div>
-                            </a>	
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </c:forEach>
 
-        <section class="products section bg-gray">
-            <div class="container">
-                <div class="row">
-                    <div class="title text-center">
-                        <h2>Trendy Products</h2>
-                    </div>
-                </div>
-                <div class="row">
 
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <span class="bage">Sale</span>
-                                <img class="img-responsive" src="images/shop/products/product-1.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Reef Boardsport</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-3.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Strayhorn SP</a></h4>
-                                <p class="price">$230</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-4.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Bradley Mid</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-6.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <span class="bage">Sale</span>
-                                <img class="img-responsive" src="images/shop/products/product-7.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-8.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-9.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-
+                    
                     <!-- Modal -->
                     <div class="modal product-modal fade" id="product-modal">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -390,13 +185,13 @@
                                     <div class="row">
                                         <div class="col-md-8 col-sm-6 col-xs-12">
                                             <div class="modal-image">
-                                                <img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+                                                <img class="img-responsive" src="${o.imgageurl}" alt="product-img" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-short-details">
-                                                <h2 class="product-title">GM Pendant, Basalt Grey</h2>
-                                                <p class="product-price">$200</p>
+                                                <h2 class="product-title">${o.name}</h2>
+                                                <p class="product-price">$${o.price}</p>
                                                 <p class="product-short-description">
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
                                                 </p>
@@ -408,8 +203,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.modal -->
-
+                    </div>
+                   <!-- /.modal -->
+                    
                 </div>
             </div>
         </section>

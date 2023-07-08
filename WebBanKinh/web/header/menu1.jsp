@@ -4,6 +4,7 @@
     Author     : datng
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,46 +34,56 @@
 
                             <!-- Home -->
                             <li class="dropdown ">
-                                <a href="home.jsp">Home</a>
+                                <a href="homecontroll">Trang chủ</a>
                             </li><!-- / Home -->
 
 
-                            <!-- Elements -->
+                            <!-- Product -->
                             <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+                                <a href="shop" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm<span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
                                         <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
+                                        <div class="col-lg-12 col-md-12 mb-sm-3">
                                             <ul>
-                                                <li class="dropdown-header">Pages</li>
+                                                <a href="shop"><li class="dropdown-header">Shop</li></a>
                                                 <li role="separator" class="divider"></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
+                                                <c:forEach items="${listC}" var="o">
+                                                    <li><a href="category?cid=${o.cid}">${o.cname}</a></li>
+                                                </c:forEach>
 
                                             </ul>
                                         </div>
-
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.html">Product Details</a></li>
-                                                <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-                                            </ul>
-                                        </div>
-
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+                            </li><!-- / Product -->
+                            
+                             <!-- Brand -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false">Thương hiệu<span
+                                        class="tf-ion-ios-arrow-down"></span></a>
+                                <div class="dropdown-menu">
+                                    <div class="row">
+
+                                        <!-- Basic -->
+                                        <div class="col-lg-12 col-md-12 mb-sm-3">
+                                            <ul>
+                                                <a href="shop"><li class="dropdown-header">Brand</li></a>
+                                                <li role="separator" class="divider"></li>
+                                                <c:forEach items="${listB}" var="o">
+                                                    <li><a href="brand?bid=${o.bid}">${o.bname}</a></li>
+                                                </c:forEach>
+
+                                            </ul>
+                                        </div>
+                                    </div><!-- / .row -->
+                                </div><!-- / .dropdown-menu -->
+                            </li><!-- / Brand -->
+                            
 
 
                             <!-- Pages -->
