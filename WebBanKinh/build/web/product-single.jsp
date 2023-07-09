@@ -54,9 +54,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ol class="breadcrumb">
-                            <li><a href="home.jsp">Home</a></li>
-                            <li><a href="shop.jsp">Shop</a></li>
-                            <li class="active">Single Product</li>
+                            <li><a href="homecontroll">Trang chủ</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li class="active">${detail.title}</li>
                         </ol>
                     </div>
                     <div class="col-md-6">
@@ -74,24 +74,16 @@
                                     <!-- me art lab slider -->
                                     <div class='carousel-inner '>
                                         <div class='item active'>
-                                            <img src='images/shop/single-products/product-1.jpg' alt='' data-zoom-image="images/shop/single-products/product-1.jpg" />
+                                            <img src='${detail.imageUrl1}' alt='' data-zoom-image="${detail.imageUrl1}" />
                                         </div>
                                         <div class='item'>
-                                            <img src='images/shop/single-products/product-2.jpg' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
+                                            <img src='${detail.imageUrl2}' alt='' data-zoom-image="${detail.imageUrl2}" />
                                         </div>
 
                                         <div class='item'>
-                                            <img src='images/shop/single-products/product-3.jpg' alt='' data-zoom-image="images/shop/single-products/product-3.jpg" />
+                                            <img src='${detail.imageUrl3}' alt='' data-zoom-image="${detail.imageUrl3}" />
                                         </div>
-                                        <div class='item'>
-                                            <img src='images/shop/single-products/product-4.jpg' alt='' data-zoom-image="images/shop/single-products/product-4.jpg" />
-                                        </div>
-                                        <div class='item'>
-                                            <img src='images/shop/single-products/product-5.jpg' alt='' data-zoom-image="images/shop/single-products/product-5.jpg" />
-                                        </div>
-                                        <div class='item'>
-                                            <img src='images/shop/single-products/product-6.jpg' alt='' data-zoom-image="images/shop/single-products/product-6.jpg" />
-                                        </div>
+                                       
 
                                     </div>
 
@@ -107,76 +99,41 @@
                                 <!-- thumb -->
                                 <ol class='carousel-indicators mCustomScrollbar meartlab'>
                                     <li data-target='#carousel-custom' data-slide-to='0' class='active'>
-                                        <img src='images/shop/single-products/product-1.jpg' alt='' />
+                                        <img src='${detail.imageUrl1}' alt='' />
                                     </li>
                                     <li data-target='#carousel-custom' data-slide-to='1'>
-                                        <img src='images/shop/single-products/product-2.jpg' alt='' />
+                                        <img src='${detail.imageUrl2}' alt='' />
                                     </li>
                                     <li data-target='#carousel-custom' data-slide-to='2'>
-                                        <img src='images/shop/single-products/product-3.jpg' alt='' />
+                                        <img src='${detail.imageUrl3}' alt='' />
                                     </li>
-                                    <li data-target='#carousel-custom' data-slide-to='3'>
-                                        <img src='images/shop/single-products/product-4.jpg' alt='' />
-                                    </li>
-                                    <li data-target='#carousel-custom' data-slide-to='4'>
-                                        <img src='images/shop/single-products/product-5.jpg' alt='' />
-                                    </li>
-                                    <li data-target='#carousel-custom' data-slide-to='5'>
-                                        <img src='images/shop/single-products/product-6.jpg' alt='' />
-                                    </li>
-                                    <li data-target='#carousel-custom' data-slide-to='6'>
-                                        <img src='images/shop/single-products/product-7.jpg' alt='' />
-                                    </li>
+                                    
                                 </ol>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="single-product-details">
-                            <h2>Eclipse Crossbody</h2>
-                            <p class="product-price">$300</p>
+                            <h2>${detail.title}</h2>
+                            <p class="product-price">$${detail.price}</p>
 
                             <p class="product-description mt-20">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ipsum dicta quod, quia doloremque aut deserunt commodi quis. Totam a consequatur beatae nostrum, earum consequuntur? Eveniet consequatur ipsum dicta recusandae.
+                                ${detail.description}
                             </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, velit, sunt temporibus, nulla accusamus similique sapiente tempora, at atque cumque assumenda minus asperiores est esse sequi dolore magnam. Debitis, explicabo.</p>
+                            
                             <div class="color-swatches">
-                                <span>color:</span>
-                                <ul>
-                                    <li>
-                                        <a href="#!" class="swatch-violet"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-black"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-cream"></a>
-                                    </li>
-                                </ul>
+                                <span>Màu sắc:</span>
+                                <p style="margin: 0">${detail.color}</p>
                             </div>
-                            <div class="product-size">
-                                <span>Size:</span>
-                                <select class="form-control">
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
-                            </div>
+                            
                             <div class="product-quantity">
-                                <span>Quantity:</span>
+                                <span>Số lượng:</span>
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="text" value="0" name="product-quantity">
                                 </div>
                             </div>
-                            <div class="product-category">
-                                <span>Categories:</span>
-                                <ul>
-                                    <li><a href="product-single.html">Products</a></li>
-                                    <li><a href="product-single.html">Soap</a></li>
-                                </ul>
-                            </div>
-                            <a href="cart.jsp" class="btn btn-main mt-20">Add To Cart</a>
+                            
+                            <a href="cart.jsp" class="btn btn-main mt-20">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>
@@ -184,14 +141,14 @@
                     <div class="col-xs-12">
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>
-                                <li class=""><a data-toggle="tab" href="#reviews" aria-expanded="false">Reviews (3)</a></li>
+                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Thông tin</a></li>
+                                <li class=""><a data-toggle="tab" href="#reviews" aria-expanded="false">Đánh giá</a></li>
                             </ul>
                             <div class="tab-content patternbg">
                                 <div id="details" class="tab-pane fade active in">
-                                    <h4>Product Description</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut per spici</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis delectus quidem repudiandae veniam distinctio repellendus magni pariatur molestiae asperiores animi, eos quod iusto hic doloremque iste a, nisi iure at unde molestias enim fugit, nulla voluptatibus. Deserunt voluptate tempora aut illum harum, deleniti laborum animi neque, praesentium explicabo, debitis ipsa?</p>
+                                    <h4>Thông tin Sản phẩm</h4>
+                                    <p>${detail.description}</p>
+                                    
                                 </div>
                                 <div id="reviews" class="tab-pane fade">
                                     <div class="post-comments">

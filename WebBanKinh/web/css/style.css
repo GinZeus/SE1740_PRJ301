@@ -97,7 +97,10 @@ blockquote {
 .navbar-toggle .icon-bar {
   background: #000;
 }
-
+.active1{
+    background-color: black;
+    color: white !important;
+}
 input[type=email], input[type=password], input[type=text], input[type=tel] {
   border-radius: 0;
   box-shadow: none;

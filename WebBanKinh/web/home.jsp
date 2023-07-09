@@ -62,7 +62,7 @@
                             <div class="col-lg-8 text-center">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">MẮT KÍNH CHÍNH HÃNG</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Sắc màu cuộc sống rực rỡ hơn <br>với kính mắt chính hãng.</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                             <div class="col-lg-8 text-left">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">GỌNG KÍNH ĐẸP, BỀN</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Nâng tầm phong cách <br>của bạn.</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="category?cid=2">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                             <div class="col-lg-8 text-right">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">KÍNH RÂM CHẤT LƯỢNG CAO</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Bảo vệ mắt,<br> nâng tầm phong cách.</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="category?cid=1">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -101,11 +101,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="category-box">
-                                <a href="#!">
-                                    <img src="images/shop/category/category-1.jpg" alt="" />
+                                <a href="category?cid=1">
+                                    <img src="images/shop/category/category-a.jpg" alt="" />
                                     <div class="content">
-                                        <h3>Clothes Sales</h3>
-                                        <p>Shop New Season Clothing</p>
+                                        <h3>Kính râm</h3>
+                                        <p style="color: white">Bảo vệ đôi mắt, thể hiện phong cách</p>
                                     </div>
                                 </a>	
                             </div>
@@ -175,7 +175,7 @@
 
                     
                     <!-- Modal -->
-                    <div class="modal product-modal fade" id="product-modal">
+<!--                    <div class="modal product-modal fade" id="product-modal">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="tf-ion-close"></i>
                         </button>
@@ -203,7 +203,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                    <!-- /.modal -->
                     
                 </div>

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Brand;
 import model.Category;
+import model.Info;
 import model.Product;
 
 /**
@@ -158,6 +159,36 @@ public class ProductDAL extends BaseDAO{
         }
         return brands;
     }
+    public Info getInfoByID(String id) {
+        
+        try {
+            String sql = "select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 \n" +
+                         "from Info i, Product p\n" +
+                         "where i.info_id=p.product_id\n" +
+                         "and info_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                Info s = new Info();
+                s.setInfo_id(rs.getInt("info_id"));
+                s.setMaterial(rs.getNString("material"));
+                s.setColor(rs.getNString("color"));
+                s.setTitle(rs.getString("title"));
+                s.setPrice(rs.getDouble("price"));
+                s.setDescription(rs.getNString("description"));
+                s.setImageUrl1(rs.getString("imageUrl1"));
+                s.setImageUrl2(rs.getString("imageUrl2"));
+                s.setImageUrl3(rs.getString("imageUrl3"));
+                return s;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
      public static void main(String[] args) {
         ProductDAL p=new ProductDAL();
         ArrayList<Product> products = p.getAllProducts();
@@ -165,9 +196,11 @@ public class ProductDAL extends BaseDAO{
         ArrayList<Brand> brands = p.getAllBrand();
         ArrayList<Product> productcid = p.getProductByCid("1");
         ArrayList<Product> productbid = p.getProductByBid("1");
-        for (Product o:productbid){
-            System.out.println(o);
-        }
+        Info infoProducts=p.getInfoByID("1");
+//        for (Product o:productbid){
+//            System.out.println(o);
+//        }
+         System.out.println(infoProducts);
         
      }
 

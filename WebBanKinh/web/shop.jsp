@@ -58,8 +58,10 @@
                         <div class="content">
                             <h1 class="page-name">Shop</h1>
                             <ol class="breadcrumb">
-                                <li><a href="home.jsp">Home</a></li>
-                                <li class="active">Shop</li>
+                                <li><a href="homecontroll">Trang chủ</a></li>
+                                <li><a href="shop">Shop</a></li>
+                                
+                                
                             </ol>
                         </div>
                     </div>
@@ -80,9 +82,9 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
+                                            <a href="detail?pid=${o.id}" >
                                                 <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -104,7 +106,7 @@
                     
 
                     <!-- Modal -->
-                    <div class="modal product-modal fade" id="product-modal">
+<!--                    <div class="modal product-modal fade" id="product-modal">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="tf-ion-close"></i>
                         </button>
@@ -132,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.modal -->
+                    </div> /.modal -->
 
                 </div>
             </div>

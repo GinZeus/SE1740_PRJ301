@@ -52,7 +52,7 @@
                                                 <a href="shop"><li class="dropdown-header">Shop</li></a>
                                                 <li role="separator" class="divider"></li>
                                                 <c:forEach items="${listC}" var="o">
-                                                    <li><a href="category?cid=${o.cid}">${o.cname}</a></li>
+                                                <li><a href="category?cid=${o.cid}" class="${tagCate==o.cid ? "active1" : ""}">${o.cname}</a></li>
                                                 </c:forEach>
 
                                             </ul>
@@ -75,7 +75,7 @@
                                                 <a href="shop"><li class="dropdown-header">Brand</li></a>
                                                 <li role="separator" class="divider"></li>
                                                 <c:forEach items="${listB}" var="o">
-                                                    <li><a href="brand?bid=${o.bid}">${o.bname}</a></li>
+                                                    <li><a href="brand?bid=${o.bid}" class="${tagBrand==o.bid ? "active1" : ""}">${o.bname}</a></li>
                                                 </c:forEach>
 
                                             </ul>
