@@ -58,6 +58,7 @@
                             <td>
                                 <a href="loadproduct?pid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="deleteproduct?pid=${o.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="enterinfo?pid=${o.id}" class="addinfo" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="AddInfo">&#xe146;</i></a>
                             </td>
                         </tr>
                     </c:forEach>

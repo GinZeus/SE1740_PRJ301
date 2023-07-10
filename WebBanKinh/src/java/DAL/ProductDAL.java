@@ -333,6 +333,25 @@ public class ProductDAL extends BaseDAO{
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void insertInfo(String id, String name, String material, String color,String description,String image1, String image2, String image3) {
+        try {
+            String sql = "insert into [Info]"
+                    + "(info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) "
+                    + "values(?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.setString(2, material);
+            statement.setString(3, color);
+            statement.setString(4, name);
+            statement.setString(5, description);
+            statement.setString(6, image1);
+            statement.setString(7, image2);
+            statement.setString(8, image3);
+            statement.executeUpdate();         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void editProduct(String name, String image, String price,String category, String brand, String pid) {
         try {
             String sql = "update [Product]"
