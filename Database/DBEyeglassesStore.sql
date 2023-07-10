@@ -13,6 +13,13 @@ create table [Account](
 	[role] int
 );
 
+select * from Account 
+where [username] = ?
+and [password] = ?
+
+insert into Account 
+values ('test1','test1','test1@gmail.com','2')
+
 create table [User](
 	[user_id] int not null  primary key,	
 	[fullname] nvarchar(255) ,
@@ -61,8 +68,12 @@ create table [Product](
 	FOREIGN KEY (category_id) REFERENCES [Category](category_id) ,
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id)	 
 );
+select * from Product
 
-
+delete from Info
+where info_id =?
+delete from Product
+where product_id=?
 create table [OrderDetails](
 	[od_id] int not null identity(1,1) primary key,
 	[order_id]  int  ,
@@ -155,22 +166,19 @@ insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_ti
 insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('GK – 300CN020','2','2','24','https://kinhmatanna.com/wp-content/uploads/2023/03/020.jpg',GETDATE())
 insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('GK – 550CN031','2','1','13','https://kinhmatanna.com/wp-content/uploads/2023/03/031.jpg',GETDATE())
 
+--Kính áp tròng
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TA405','3','1','12','https://kinhmatanna.com/wp-content/uploads/2023/04/TA405.png',GETDATE())
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TA409','3','2','11','https://kinhmatanna.com/wp-content/uploads/2023/04/TA409.png',GETDATE())
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TE006','3','3','16','https://kinhmatanna.com/wp-content/uploads/2023/04/TE006.png',GETDATE())
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TH358','3','4','18','https://kinhmatanna.com/wp-content/uploads/2023/04/TH358.png',GETDATE())
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TH359','3','5','13','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png',GETDATE())
+insert into [Product](product_name,category_id,brand_id,price,imageUrl,create_time) values ('KÍNH ÁP TRÒNG – TN159','3','6','11','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png',GETDATE())
+
+
 --select * from Product
 
 --Info
-
-create table [Info](
-	[info_id] int not null  primary key,
-	[material] nvarchar(500) ,
-	[color] nvarchar(200) ,
-	[title] nvarchar(100) ,
-	[description] nvarchar(2000) ,
-	[imageUrl1] varchar(900),
-	[imageUrl2] varchar(900),
-	[imageUrl3] varchar(900),
-	FOREIGN KEY (info_id) REFERENCES [Product](product_id) 
-);
-
+--Kính râm
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('1',N'Nhựa cao cấp',N'Xanh lá, Ghi, Đen nâu',N'KR – RCT036',N'Kính râm thời trang KR – RCT036 là mẫu sản phẩm được thiết kế độc quyền bởi Anna. KR – RCT036 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường,…','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-156.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-160.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-158.jpg')
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('2',N'Nhựa cao cấp',N'Đen bóng, Ghi, Nâu',N'KR – RCT055',N'Kính râm thời trang KR – RCT055 là mẫu sản phẩm được thiết kế độc quyền bởi Chemi. KR – RCT055 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường,…','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-90.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-98.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-96.jpg')
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('3',N' Nhựa cao cấp',N'Lỳ đồi mồi, Đen đồi mồi, Nâu',N'KR – RCT056',N'Kính râm thời trang KR – RCT056 là mẫu sản phẩm được thiết kế độc quyền bởi Hoga. KR – RCT056 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường,…','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-120.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-123.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-122.jpg')
@@ -183,7 +191,43 @@ insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('10',N' Nhựa cao cấp',N'Đen vàng, đen lỳ, đen bóng',N'KR – RCT065',N'Kính râm thời trang KR – RCT065 là mẫu sản phẩm được thiết kế độc quyền bởi Anna. KR – RCT065 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường,…','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-66.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-65.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-66.jpg')
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('11',N' Nhựa cao cấp',N'Đen lỳ, nâu, đen nâu',N'KR – RCT066',N'Kính râm thời trang KR – RCT066 là mẫu sản phẩm được thiết kế độc quyền bởi Anna. KR – RCT066 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường,…','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-29.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-31.jpg','https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-30.jpg')
 
-select * from Info
+--Gọng kính
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('12',N'Nhựa Acetate',N'Ghi, đen bóng',N'GK – 800NC005',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng.','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-11_1-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-12_1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-11_1-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('13',N'Nhựa Acetate',N'Ghi, đen bóng',N'GK – 800NC004',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng.','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-195-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-196-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-195-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('14',N'Nhựa Acetate',N'Ghi, đen bóng',N'GK - 800NC003',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng.','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-225-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-225-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-225-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('15',N'Nhựa Acetate',N'Vân đá, đen xanh, đen bóng',N'GK - 800NC001',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-243-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-242-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/Anna-244-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('16',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK134',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3955-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3957-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3959-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('17',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK116',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4092-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4096-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('18',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK124',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4015-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4019-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('19',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK118',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4082-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4076-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4080-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('20',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK113',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3975-copy-1-Copy.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3977-copy-1-Copy.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3979-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('21',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK132',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3988-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3990-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_3994-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('22',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK119',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4052-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4054-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4056-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('23',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK121',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4110-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4108-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4106-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('24',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK117',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4064-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4066-copy-1-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4068-copy-1-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('25',N'Kim Loại',N'Đen hồng, Bạc, Đen trắng',N'GK – 380CK131',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4001-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4004-copy-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4008-copy-1.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('26',N'Titan',N'Đen hồng, Bạc, Đen trắng',N'GK – 480CN004',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/03/004.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/6940-3.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/6940-2.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('27',N'Nhựa kim loại',N'xanh, ghi, đen bóng',N'GK – 300CN022',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/03/022.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/12483-4.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/12483-2.jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('28',N'Nhựa kim loại',N'Nâu, đen bóng',N'GK – 350CN008',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/03/008-1.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/7712..jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/7712...jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('29',N'Nhựa dẻo',N'Đen, đen lì, ghi',N'GK – 300CN020',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/03/020.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/5835-3.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/5835..jpg')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('30',N'Nhựa kim loại',N'trắng, đen trắng, đen vàng',N'GK – 550CN031',N'Gọng kính cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, mạnh mẽ và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng','https://kinhmatanna.com/wp-content/uploads/2023/03/031.jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/1376..jpg','https://kinhmatanna.com/wp-content/uploads/2023/03/1376...jpg')
+
+--Kính áp tròng
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('31',N'Silicone Hydrogel',N'Đen tự nhiên',N'KÍNH ÁP TRÒNG – TA405',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TA405.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TA405.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TA405.png')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('32',N'Silicone Hydrogel',N'Xám nâu',N'KÍNH ÁP TRÒNG – TA409',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TA409.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TA409.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TA409.png')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('33',N'Silicone Hydrogel',N'Xám mật ong',N'KÍNH ÁP TRÒNG – TE006',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TE006.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TE006.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TE006.png')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('34',N'Silicone Hydrogel',N'Xám tự nhiên, đen vàng',N'KÍNH ÁP TRÒNG – TH358',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TH358.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH358.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH358.png')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('35',N'Silicone Hydrogel',N'Xám pha nâu rêu',N'KÍNH ÁP TRÒNG – TH359',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png')
+insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('36',N'Silicone Hydrogel',N'Xám tro',N'KÍNH ÁP TRÒNG – TN159',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png')
+
+
+select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 
+from Info i, Product p
+where i.info_id=p.product_id
+and info_id=1
 
 select * from Product p, Brand b
 where p.brand_id=b.brand_id
+
+select * from Product
+where product_name like ?

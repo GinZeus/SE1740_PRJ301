@@ -48,32 +48,31 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="block text-center">
-                            <a class="logo" href="home.jsp">
+                            <a class="logo" href="homecontroll">
                                 <img src="images/newlogo.png" alt="">
                             </a>
-                            <h2 class="text-center">Create Your Account</h2>
-                            <form class="text-left clearfix" action="index.html">
+                            <h2 class="text-center">Tạo tài khoản</h2>
+                            <p class="text-danger">${mess}</p>
+                            <form class="text-left clearfix" action="signup">
+                                
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="First Name">
+                                    <input name="user" type="text" class="form-control"  placeholder="Username" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Last Name">
+                                    <input name="email" type="email" class="form-control"  placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Username">
+                                    <input name="pass" type="password" class="form-control"  placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control"  placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Password">
+                                    <input name="repass" type="password" class="form-control"  placeholder="Repeat Password" required>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-main text-center">Sign In</button>
+                                    <button type="submit" class="btn btn-main text-center">Đăng kí</button>
                                 </div>
                             </form>
-                            <p class="mt-20">Already hava an account ?<a href="login.jsp">Login</a></p>
-                            <p><a href="forget-password.jsp"> Forgot your password?</a></p>
+                            <p class="mt-20">Đã có tài khoản?<a href="login.jsp"> Đăng nhập</a></p>
+                            
                         </div>
                     </div>
                 </div>

@@ -48,22 +48,25 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="block text-center">
-                            <a class="logo" href="home.jsp">
+                            <a class="logo" href="homecontroll">
                                 <img src="images/newlogo.png" alt="">
                             </a>
-                            <h2 class="text-center">Welcome Back</h2>
-                            <form class="text-left clearfix" action="home.jsp" >
+                            <h2 class="text-center" style="margin-bottom: 25px">Chào mừng trở lại</h2>
+                            <p class="text-danger">${mess}</p>
+                            <form class="text-left clearfix" action="login" method="post">
                                 <div class="form-group">
-                                    <input type="email" class="form-control"  placeholder="Email">
+                                    <input name="user" type="text" class="form-control"  placeholder="Username">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input name="pass" type="password" class="form-control" placeholder="Password">
                                 </div>
+                                <input type="checkbox" name ="remember" value="remember"/>Ghi nhớ đăng nhập<br/>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-main text-center" >Login</button>
+                                    <button type="submit" class="btn btn-main text-center" >Đăng nhập</button>
                                 </div>
                             </form>
-                            <p class="mt-20">New in this site ?<a href="signup.jsp"> Create New Account</a></p>
+                            <p class="mt-20">Chưa có tài khoản?<a href="signup.jsp">Tạo tài khoản mới</a></p>
+                            <p><a href="forget-password.jsp">Quên mật khẩu</a></p>
                         </div>
                     </div>
                 </div>

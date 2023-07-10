@@ -96,7 +96,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title text-center">
-                                <h2>Product Category</h2>
+                                <h2>Loại sản phẩm</h2>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -110,7 +110,7 @@
                                 </a>	
                             </div>
                             <div class="category-box">
-                                <a href="#!">
+                                <a href="category?cid=2">
                                     <img src="images/shop/category/category-2.jpg" alt="" />
                                     <div class="content">
                                         <h3>Smart Casuals</h3>
@@ -121,11 +121,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="category-box category-box-2">
-                                <a href="#!">
-                                    <img src="images/shop/category/category-3.jpg" alt="" />
+                                <a href="category?cid=2">
+                                    <img src="images/shop/category/category-b.jpg" alt="" />
                                     <div class="content">
-                                        <h3>Jewellery</h3>
-                                        <p>Special Design Comes First</p>
+                                        <h3>Gọng kính</h3>
+                                        <p>Bền, đẹp, phong cách</p>
                                     </div>
                                 </a>	
                             </div>
@@ -138,7 +138,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="title text-center">
-                            <h2>Trendy Products</h2>
+                            <h2>Sản phẩm mới ra</h2>
                         </div>
                     </div>
                     <div class="row">
@@ -151,9 +151,11 @@
                                     <div class="preview-meta">
                                         <ul>
                                             <li>
-                                                <span  data-toggle="modal" data-target="#product-modal">
+                                                <a href="detail?pid=${o.id}">
                                                     <i class="tf-ion-ios-search-strong"></i>
-                                                </span>
+                                                </a>
+                                                    
+                                                
                                             </li>
                                             <li>
                                                 <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
@@ -214,7 +216,7 @@
         <!--
         Start Call To Action
         ==================================== -->
-        <section class="call-to-action bg-gray section">
+<!--        <section class="call-to-action bg-gray section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -228,13 +230,13 @@
                                 <span class="input-group-btn">
                                     <button class="btn btn-main" type="button">Subscribe Now!</button>
                                 </span>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
+                            </div> /input-group 
+                        </div> /.col-lg-6 
 
                     </div>
-                </div> 		<!-- End row -->
-            </div>   	<!-- End container -->
-        </section>   <!-- End section -->
+                </div> 		 End row 
+            </div>   	 End container 
+        </section>    End section 
 
         <section class="section instagram-feed">
             <div class="container">
@@ -249,7 +251,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
 
         <footer>

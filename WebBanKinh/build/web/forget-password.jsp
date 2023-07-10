@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="block text-center">
-                            <a class="logo" href="home.jsp">
+                            <a class="logo" href="homecontroll">
                                 <img src="images/newlogo.png" alt="">
                             </a>
                             <h2 class="text-center">Welcome Back</h2>

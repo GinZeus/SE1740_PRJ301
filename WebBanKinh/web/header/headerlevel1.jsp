@@ -96,7 +96,7 @@
                                         class="tf-ion-ios-search-strong"></i>Tìm kiếm</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                        <form action="post"><input type="search" class="form-control" placeholder="Tìm kiếm..."></form>
+                                        <form action="search" method="get"><input name="txt" type="search" class="form-control" placeholder="Tìm kiếm..."></form>
                                     </li>
                                 </ul>
                             </li><!-- / Search -->

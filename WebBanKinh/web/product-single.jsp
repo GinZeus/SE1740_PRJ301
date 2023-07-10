@@ -120,7 +120,10 @@
                             <p class="product-description mt-20">
                                 ${detail.description}
                             </p>
-                            
+                            <div class="color-swatches">
+                                <span>Vật liệu:</span>
+                                <p style="margin: 0">${detail.material}</p>
+                            </div>
                             <div class="color-swatches">
                                 <span>Màu sắc:</span>
                                 <p style="margin: 0">${detail.color}</p>
