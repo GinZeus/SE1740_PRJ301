@@ -6,23 +6,18 @@
 package Controller;
 
 import DAL.ProductDAL;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Brand;
-import model.Category;
-import model.Product;
 
 /**
  *
  * @author datng
  */
-public class ManageProductControl extends HttpServlet {
+public class AddProductControl extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,15 +29,16 @@ public class ManageProductControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAL p = new ProductDAL();
-        ArrayList<Product> products = p.getAllProducts();
-        request.setAttribute("listAllP", products);
-        ArrayList<Category> categories = p.getAllCategory();
-        request.setAttribute("listC", categories);
-        ArrayList<Brand> brands = p.getAllBrand();
-        request.setAttribute("listB", brands);
-        RequestDispatcher dispatcher1 = request.getRequestDispatcher("manage_product.jsp");
-        dispatcher1.forward(request, response);
+        request.setCharacterEncoding("UTF-8");
+        String name=request.getParameter("name");
+        String image = request.getParameter("image");
+        String price = request.getParameter("price");
+        String category = request.getParameter("category");
+        String brand = request.getParameter("brand");
+        
+        ProductDAL dao=new ProductDAL();
+        dao.insertProduct(name, image, price, category, brand);
+        response.sendRedirect("manageproduct");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

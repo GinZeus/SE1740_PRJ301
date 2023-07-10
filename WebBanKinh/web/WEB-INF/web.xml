@@ -43,6 +43,18 @@
         <servlet-name>DeleteProductControl</servlet-name>
         <servlet-class>Controller.DeleteProductControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProductControl</servlet-name>
+        <servlet-class>Controller.AddProductControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadProductControl</servlet-name>
+        <servlet-class>Controller.LoadProductControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductControl</servlet-name>
+        <servlet-class>Controller.EditProductControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -82,6 +94,18 @@
     <servlet-mapping>
         <servlet-name>DeleteProductControl</servlet-name>
         <url-pattern>/deleteproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductControl</servlet-name>
+        <url-pattern>/addproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadProductControl</servlet-name>
+        <url-pattern>/loadproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProductControl</servlet-name>
+        <url-pattern>/editproduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

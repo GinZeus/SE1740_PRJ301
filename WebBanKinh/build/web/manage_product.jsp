@@ -56,7 +56,7 @@
                             <td><img src="${o.imageurl}" alt="alt" style="width: 50px; height: 50px"/></td>
                             <td>${o.createTime}</td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="loadproduct?pid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="deleteproduct?pid=${o.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
@@ -80,31 +80,44 @@
             </div>
         </div>
         <!-- Edit Modal HTML -->
-<!--        <div id="addEmployeeModal" class="modal fade">
+        <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form>
+                    <form action="addproduct" method="post">
                         <div class="modal-header">
-                            <h4 class="modal-title">Add Employee</h4>
+                            <h4 class="modal-title">Add Product</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" class="form-control" required>
+                                <input name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" required>
+                                <label>Image</label>
+                                <input name="image" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" required></textarea>
+                                <label>Price</label>
+                                <input name="price" type="text" class="form-control" required></input>
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control" required>
+                                <label>Category</label>
+                                <select name="category" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${listC}" var="o">
+                                        <option value="${o.cid}">${o.cname}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
+                            <div class="form-group">
+                                <label>Brand</label>
+                                <select name="brand" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${listB}" var="o">
+                                        <option value="${o.bid}">${o.bname}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -113,9 +126,9 @@
                     </form>
                 </div>
             </div>
-        </div>
-         Edit Modal HTML 
-        <div id="editEmployeeModal" class="modal fade">
+        </div><!--
+         Edit Modal HTML -->        
+<!--        <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form>
@@ -148,7 +161,8 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div>-->
+<!--
          Delete Modal HTML 
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">

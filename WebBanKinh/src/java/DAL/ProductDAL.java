@@ -186,6 +186,32 @@ public class ProductDAL extends BaseDAO{
         }
         return brands;
     }
+    public Product getProductById(String pid) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Product]"
+                    + "WHERE product_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, pid);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                Product s = new Product();
+                s.setId(rs.getInt("product_id"));
+                s.setName(rs.getString("product_name"));
+                s.setCategory_id(rs.getInt("category_id"));
+                s.setBrand_id(rs.getInt("brand_id"));
+                s.setImageurl(rs.getString("imageUrl"));
+                s.setPrice(rs.getDouble("price"));
+                s.setCreateTime(rs.getDate("create_time"));
+                return s;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public Info getInfoByID(String id) {
         try {
             String sql = "select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 \n" +
@@ -286,6 +312,44 @@ public class ProductDAL extends BaseDAO{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pid);
             statement.setString(2, pid);
+            statement.executeUpdate();         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void insertProduct(String name, String image, String price,String category, String brand) {
+        try {
+            String sql = "insert into [Product]"
+                    + "(product_name,category_id,brand_id,price,imageUrl,create_time)"
+                    + " values(?,?,?,?,?,GETDATE())";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, category);
+            statement.setString(3, brand);
+            statement.setString(4, price);
+            statement.setString(5, image);
+            statement.executeUpdate();         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void editProduct(String name, String image, String price,String category, String brand, String pid) {
+        try {
+            String sql = "update [Product]"
+                    + "set [product_name]=?,"
+                    + "[category_id]=?,"
+                    + "[brand_id]=?,"
+                    + "[price]=?,"
+                    + "[imageUrl]=?,"
+                    + "[create_time]=GETDATE()"
+                    + "where product_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, category);
+            statement.setString(3, brand);
+            statement.setString(4, price);
+            statement.setString(5, image);
+            statement.setString(6, pid);
             statement.executeUpdate();         
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);

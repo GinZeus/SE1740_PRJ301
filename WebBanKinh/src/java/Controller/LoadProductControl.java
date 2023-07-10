@@ -22,7 +22,7 @@ import model.Product;
  *
  * @author datng
  */
-public class ManageProductControl extends HttpServlet {
+public class LoadProductControl extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,14 +34,15 @@ public class ManageProductControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAL p = new ProductDAL();
-        ArrayList<Product> products = p.getAllProducts();
-        request.setAttribute("listAllP", products);
-        ArrayList<Category> categories = p.getAllCategory();
+        String id = request.getParameter("pid");
+        ProductDAL dao = new ProductDAL();
+        Product p=dao.getProductById(id);
+        request.setAttribute("detail", p);
+        ArrayList<Category> categories = dao.getAllCategory();
         request.setAttribute("listC", categories);
-        ArrayList<Brand> brands = p.getAllBrand();
+        ArrayList<Brand> brands = dao.getAllBrand();
         request.setAttribute("listB", brands);
-        RequestDispatcher dispatcher1 = request.getRequestDispatcher("manage_product.jsp");
+        RequestDispatcher dispatcher1 = request.getRequestDispatcher("editproduct.jsp");
         dispatcher1.forward(request, response);
     } 
 
