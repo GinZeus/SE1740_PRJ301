@@ -17,8 +17,7 @@ select * from Account
 where [username] = ?
 and [password] = ?
 
-insert into Account 
-values ('test1','test1','test1@gmail.com','2')
+
 
 create table [User](
 	[user_id] int not null  primary key,	

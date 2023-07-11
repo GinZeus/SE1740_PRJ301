@@ -45,7 +45,7 @@
                         <form action="editproduct" method="post">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Add Product</h4>
-                                <button href="manageproduct" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <a href="manageproduct" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
                             </div>
                             <div class="modal-body">					
                                 <div class="form-group">

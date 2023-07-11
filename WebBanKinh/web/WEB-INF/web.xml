@@ -59,6 +59,18 @@
         <servlet-name>AddInfoControl</servlet-name>
         <servlet-class>Controller.AddInfoControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactControl</servlet-name>
+        <servlet-class>Controller.ContactControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AboutControl</servlet-name>
+        <servlet-class>Controller.AboutControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOutControl</servlet-name>
+        <servlet-class>Controller.LogOutControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -114,6 +126,18 @@
     <servlet-mapping>
         <servlet-name>AddInfoControl</servlet-name>
         <url-pattern>/addinfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactControl</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AboutControl</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutControl</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

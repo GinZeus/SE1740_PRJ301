@@ -84,17 +84,23 @@
                                 </div><!-- / .dropdown-menu -->
                             </li><!-- / Brand -->
                             
-
+                            <li class="dropdown ">
+                                <a href="contact">Liên hệ</a>
+                            </li>
+                            
+                            <li class="dropdown ">
+                                <a href="about">Giới thiệu</a>
+                            </li>
 
                             <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
+<!--                            <li class="dropdown full-width dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
-                                        <!-- Introduction -->
+                                         Introduction 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header">Introduction</li>
@@ -107,7 +113,7 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Contact -->
+                                         Contact 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header">Dashboard</li>
@@ -119,7 +125,7 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Utility -->
+                                         Utility 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header">Utility</li>
@@ -130,20 +136,20 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Mega Menu -->
+                                         Mega Menu 
                                         <div class="col-sm-3 col-xs-12">
                                             <a href="shop.html">
                                                 <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
                                             </a>
                                         </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
+                                    </div> / .row 
+                                </div> / .dropdown-menu 
+                            </li> / Pages -->
 
 
 
                             <!-- Blog -->
-                            <li class="dropdown dropdown-slide">
+<!--                            <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Blog <span
                                         class="tf-ion-ios-arrow-down"></span></a>
@@ -154,9 +160,9 @@
                                     <li><a href="blog-grid.html">Blog 2 Columns</a></li>
                                     <li><a href="blog-single.html">Blog Single</a></li>
                                 </ul>
-                            </li><!-- / Blog -->
+                            </li> / Blog 
 
-                            <!-- Shop -->
+                             Shop 
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Elements <span
@@ -166,7 +172,7 @@
                                     <li><a href="buttons.html">Buttons</a></li>
                                     <li><a href="alerts.html">Alerts</a></li>
                                 </ul>
-                            </li><!-- / Blog -->
+                            </li> / Blog -->
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>

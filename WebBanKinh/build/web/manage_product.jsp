@@ -24,7 +24,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Manage <b>Products</b></h2>
+                            <a href="homecontroll" style="color: white; text-decoration: none"><h2>Manage <b>Products</b></h2></a>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>

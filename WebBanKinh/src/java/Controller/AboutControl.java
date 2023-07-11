@@ -6,20 +6,22 @@
 package Controller;
 
 import DAL.ProductDAL;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.Account;
+import java.util.ArrayList;
+import model.Brand;
+import model.Category;
 
 /**
  *
  * @author datng
  */
-public class LoginControl extends HttpServlet {
+public class AboutControl extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,20 +33,13 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username=request.getParameter("user");
-        String password=request.getParameter("pass");
-         
-        ProductDAL dao=new ProductDAL();
-        Account a = dao.login(username, password);
-        if (a==null) {
-            request.setAttribute("mess", "Cảnh báo! Username hoặc Password sai. Xin vui lòng nhập lại.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("account", a);
-            request.getRequestDispatcher("homecontroll").forward(request, response);
-
-        }
+        ProductDAL p=new ProductDAL();
+        ArrayList<Category> categories = p.getAllCategory();
+        request.setAttribute("listC", categories);
+        ArrayList<Brand> brands = p.getAllBrand();
+        request.setAttribute("listB", brands);
+        RequestDispatcher dispatcher1 = request.getRequestDispatcher("about.jsp");
+        dispatcher1.forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

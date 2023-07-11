@@ -4,6 +4,7 @@
     Author     : datng
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-xs-12 col-sm-4">
-                        <div class="contact-number">
-                            <i class="tf-ion-ios-telephone"></i>
-                            <span>0387-137-493</span>
-                        </div>
+                        <ul class="top-menu text-right list-inline">
+                            <li>
+                                <div class="contact-number">
+                                    <i class="tf-ion-ios-telephone"></i>
+                                    <span>0387-137-493</span>
+                                </div>
+                            </li>
+                            <c:if test="${sessionScope.account.role==1}">
+                                <li class="dropdown dropdown-slide">
+                                    <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                            class="tf-ion-clipboard"></i>Quản lý</a>
+                                    <div class="dropdown-menu">
+                                        <div class="row">
+                                            <!-- Basic -->
+                                            <div class="col-lg-12 col-md-12 mb-sm-3">
+                                                <ul>
+                                                    <li><a href="manageproduct" class="btn btn-small btn-solid-border" style="width: 100%">Quản lý sản phẩm</a></li>                                                       
+                                                </ul>
+                                            </div>
+                                        </div><!-- / .row -->
+                                    </div><!-- / .dropdown-menu -->
+                                </li>
+                            </c:if>
+
+
+                        </ul>
+
                     </div>
                     <div class="col-md-4 col-xs-12 col-sm-4">
                         <!-- Site Logo -->
@@ -101,9 +125,41 @@
                                 </ul>
                             </li><!-- / Search -->
 
-                            <a href="login.jsp">
-                                <i class="tf-ion-android-person"></i>
-                            </a>
+
+
+                            <!-- User -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                        class="tf-ion-android-person"></i>
+                                    <c:if test="${sessionScope.account!=null}">
+                                        ${sessionScope.account.user}
+                                    </c:if>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <div class="row">
+
+                                        <!-- Basic -->
+                                        <div class="col-lg-12 col-md-12 mb-sm-3">
+                                            <ul>
+                                                <c:if test="${sessionScope.account==null}">
+                                                    <li><a href="login.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Đăng nhập</a></li>
+                                                    <li><a href="signup.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Đăng ký</a></li>
+                                                    </c:if>
+                                                    <c:if test="${sessionScope.account!=null}">
+                                                    <li><a href="profile-details.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Thông tin</a></li>
+                                                    <li><a href="logout" class="btn btn-small btn-solid-border" style="width: 100%">Đăng xuất</a></li>
+                                                    </c:if>
+
+
+                                            </ul>
+                                        </div>
+                                    </div><!-- / .row -->
+                                </div><!-- / .dropdown-menu -->
+                            </li>
+
+
+                            <!-- /User -->
+
 
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>
