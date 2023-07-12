@@ -91,6 +91,10 @@
         <servlet-name>AddAccountControl</servlet-name>
         <servlet-class>Controller.AddAccountControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditAccountControl</servlet-name>
+        <servlet-class>Controller.EditAccountControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -178,6 +182,10 @@
     <servlet-mapping>
         <servlet-name>AddAccountControl</servlet-name>
         <url-pattern>/addaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountControl</servlet-name>
+        <url-pattern>/editaccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

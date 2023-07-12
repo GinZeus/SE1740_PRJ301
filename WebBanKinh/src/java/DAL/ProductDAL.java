@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAL;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,16 +20,16 @@ import model.Product;
  *
  * @author datng
  */
-public class ProductDAL extends BaseDAO{
-     public ArrayList<Product> getAllProducts() {
+public class ProductDAL extends BaseDAO {
+
+    public ArrayList<Product> getAllProducts() {
         ArrayList<Product> products = new ArrayList<>();
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -44,7 +45,8 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
-     public ArrayList<Account> getAllAccount() {
+
+    public ArrayList<Account> getAllAccount() {
         ArrayList<Account> accounts = new ArrayList<>();
         try {
             String sql = "SELECT *"
@@ -52,8 +54,7 @@ public class ProductDAL extends BaseDAO{
                     + "where deleted=0";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Account acc = new Account();
                 acc.setId(rs.getInt("id"));
                 acc.setUser(rs.getString("username"));
@@ -71,8 +72,9 @@ public class ProductDAL extends BaseDAO{
         }
         return accounts;
     }
-     public Account getAccountById(String accid) {
-        
+
+    public Account getAccountById(String accid) {
+
         try {
             String sql = "SELECT *"
                     + "  FROM [Account]"
@@ -80,8 +82,7 @@ public class ProductDAL extends BaseDAO{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, accid);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Account acc = new Account();
                 acc.setId(rs.getInt("id"));
                 acc.setUser(rs.getString("username"));
@@ -99,21 +100,46 @@ public class ProductDAL extends BaseDAO{
         }
         return null;
     }
-     
-     public void deleteAccount(String id) {
+
+    public void deleteAccount(String id) {
         try {
             String sql = "update Account "
-                    + "set [deleted]=1\n" +
-                      "where id=?";
+                    + "set [deleted]=1\n"
+                    + "where id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
-            statement.executeUpdate();         
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-     
+
+    public void editAccount(String user, String pass, String email, String role, String name, String address, String phone, String id) {
+        try {
+            String sql = "update [Account]\n"
+                    + "set [username]= ?,\n"
+                    + "[password]=?,\n"
+                    + "[email]=?,\n"
+                    + "[role]=?,\n"
+                    + "[fullname]=?,\n"
+                    + "[address]=?,\n"
+                    + "[phone_number]=?\n"
+                    + "where id= ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, user);
+            statement.setString(2, pass);
+            statement.setString(3, email);
+            statement.setString(4, role);
+            statement.setString(5, name);
+            statement.setString(6, address);
+            statement.setString(7, phone);
+            statement.setString(8, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public ArrayList<Product> getTop6Products() {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -121,8 +147,7 @@ public class ProductDAL extends BaseDAO{
                     + "  FROM [Product]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -138,7 +163,7 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
-    
+
     public ArrayList<Product> getProductByCid(String cid) {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -148,8 +173,7 @@ public class ProductDAL extends BaseDAO{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, cid);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -165,6 +189,7 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
+
     public ArrayList<Product> getProductByBid(String bid) {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -174,8 +199,7 @@ public class ProductDAL extends BaseDAO{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, bid);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -191,6 +215,7 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
+
     public ArrayList<Product> searchByName(String txtSearch) {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -198,10 +223,9 @@ public class ProductDAL extends BaseDAO{
                     + "  FROM [Product]"
                     + "WHERE product_name like ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,"%"+ txtSearch+"%");
+            statement.setString(1, "%" + txtSearch + "%");
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -217,6 +241,7 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
+
     public ArrayList<Category> getAllCategory() {
         ArrayList<Category> categories = new ArrayList<>();
         try {
@@ -224,8 +249,7 @@ public class ProductDAL extends BaseDAO{
                     + "  FROM [Category]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Category c = new Category();
                 c.setCid(rs.getInt("category_id"));
                 c.setCname(rs.getString("category_name"));
@@ -236,6 +260,7 @@ public class ProductDAL extends BaseDAO{
         }
         return categories;
     }
+
     public ArrayList<Brand> getAllBrand() {
         ArrayList<Brand> brands = new ArrayList<>();
         try {
@@ -243,8 +268,7 @@ public class ProductDAL extends BaseDAO{
                     + "  FROM [Brand]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Brand b = new Brand();
                 b.setBid(rs.getInt("brand_id"));
                 b.setBname(rs.getString("brand_name"));
@@ -256,8 +280,9 @@ public class ProductDAL extends BaseDAO{
         }
         return brands;
     }
+
     public Product getProductById(String pid) {
-        
+
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
@@ -265,8 +290,7 @@ public class ProductDAL extends BaseDAO{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pid);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -282,17 +306,17 @@ public class ProductDAL extends BaseDAO{
         }
         return null;
     }
+
     public Info getInfoByID(String id) {
         try {
-            String sql = "select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 \n" +
-                         "from Info i, Product p\n" +
-                         "where i.info_id=p.product_id\n" +
-                         "and info_id=?";
+            String sql = "select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 \n"
+                    + "from Info i, Product p\n"
+                    + "where i.info_id=p.product_id\n"
+                    + "and info_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Info s = new Info();
                 s.setInfo_id(rs.getInt("info_id"));
                 s.setMaterial(rs.getNString("material"));
@@ -304,25 +328,25 @@ public class ProductDAL extends BaseDAO{
                 s.setImageUrl2(rs.getString("imageUrl2"));
                 s.setImageUrl3(rs.getString("imageUrl3"));
                 return s;
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    public Account login(String user, String pass){
+
+    public Account login(String user, String pass) {
         try {
-            String sql = "select * from [Account]\n" +
-                         "where username=?\n" +
-                         "and password = ?\n" +
-                         "and deleted = 0";
+            String sql = "select * from [Account]\n"
+                    + "where username=?\n"
+                    + "and password = ?\n"
+                    + "and deleted = 0";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             statement.setString(2, pass);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Account acc = new Account();
                 acc.setId(rs.getInt("id"));
                 acc.setUser(rs.getString("username"));
@@ -334,22 +358,22 @@ public class ProductDAL extends BaseDAO{
                 acc.setPhone(rs.getString("phone_number"));
                 acc.setDeleted(rs.getInt("deleted"));
                 return acc;
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    public Account checkAccountExist(String user){
+
+    public Account checkAccountExist(String user) {
         try {
-            String sql = "select * from Account \n" +
-                         "where [username] = ?\n";
+            String sql = "select * from Account \n"
+                    + "where [username] = ?\n";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Account acc = new Account();
                 acc.setId(rs.getInt("id"));
                 acc.setUser(rs.getString("username"));
@@ -357,17 +381,18 @@ public class ProductDAL extends BaseDAO{
                 acc.setEmail(rs.getString("email"));
                 acc.setRole(rs.getInt("role"));
                 return acc;
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    public void signup(String user, String pass, String email, String name, String address, String phone){
+
+    public void signup(String user, String pass, String email, String name, String address, String phone) {
         try {
-            String sql = "insert into Account \n" +
-                         "values (?,?,?,'2',?,?,?,'0')";
+            String sql = "insert into Account \n"
+                    + "values (?,?,?,'2',?,?,?,'0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             statement.setString(2, pass);
@@ -376,26 +401,28 @@ public class ProductDAL extends BaseDAO{
             statement.setString(5, address);
             statement.setString(6, phone);
             statement.executeUpdate();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void deleteProduct(String pid){
+
+    public void deleteProduct(String pid) {
         try {
-            String sql = "delete from Info\n" +
-                         "where info_id =?\n" +
-                         "delete from Product\n" +
-                         "where product_id=?";
+            String sql = "delete from Info\n"
+                    + "where info_id =?\n"
+                    + "delete from Product\n"
+                    + "where product_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pid);
             statement.setString(2, pid);
-            statement.executeUpdate();         
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void insertProduct(String name, String image, String price,String category, String brand) {
+
+    public void insertProduct(String name, String image, String price, String category, String brand) {
         try {
             String sql = "insert into [Product]"
                     + "(product_name,category_id,brand_id,price,imageUrl,create_time)"
@@ -406,12 +433,13 @@ public class ProductDAL extends BaseDAO{
             statement.setString(3, brand);
             statement.setString(4, price);
             statement.setString(5, image);
-            statement.executeUpdate();         
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void insertInfo(String id, String name, String material, String color,String description,String image1, String image2, String image3) {
+
+    public void insertInfo(String id, String name, String material, String color, String description, String image1, String image2, String image3) {
         try {
             String sql = "insert into [Info]"
                     + "(info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) "
@@ -425,12 +453,13 @@ public class ProductDAL extends BaseDAO{
             statement.setString(6, image1);
             statement.setString(7, image2);
             statement.setString(8, image3);
-            statement.executeUpdate();         
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void editProduct(String name, String image, String price,String category, String brand, String pid) {
+
+    public void editProduct(String name, String image, String price, String category, String brand, String pid) {
         try {
             String sql = "update [Product]"
                     + "set [product_name]=?,"
@@ -447,19 +476,20 @@ public class ProductDAL extends BaseDAO{
             statement.setString(4, price);
             statement.setString(5, image);
             statement.setString(6, pid);
-            statement.executeUpdate();         
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public int getTotalProduct() {
-         try {
+        try {
             String sql = "select count(*) from Product";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 return rs.getInt(1);
-            }         
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -495,16 +525,17 @@ public class ProductDAL extends BaseDAO{
 //        }
 //        return 0;
 //    }
+
     public ArrayList<Product> pagingProduct(int index) {
-        ArrayList<Product> list=new ArrayList<>();
+        ArrayList<Product> list = new ArrayList<>();
         try {
-            String sql = "select * from Product\n" +
-                         "order by product_id\n" +
-                         "offset ? rows fetch next 9 rows only";
+            String sql = "select * from Product\n"
+                    + "order by product_id\n"
+                    + "offset ? rows fetch next 9 rows only";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1,(index-1)*9 );
+            statement.setInt(1, (index - 1) * 9);
             ResultSet rs = statement.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Product s = new Product();
                 s.setId(rs.getInt("product_id"));
                 s.setName(rs.getString("product_name"));
@@ -514,24 +545,25 @@ public class ProductDAL extends BaseDAO{
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 list.add(s);
-            }         
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-     public static void main(String[] args) {
-        ProductDAL p=new ProductDAL();
+
+    public static void main(String[] args) {
+        ProductDAL p = new ProductDAL();
 
 //         Account acctest=p.getAccountById("1");
 //         System.out.println(acctest);
-         p.deleteAccount("10");
-         ArrayList<Account> accs=new ArrayList<>();
-         accs=p.getAllAccount();
-         for (Account o:accs) {
-             System.out.println(o);
-         }
-        
-     }
+        p.editAccount("abc123", "123456", "dat123@gmail.com", "1", "Ðat", "Ha NOi", "123456", "8");
+        ArrayList<Account> accs = new ArrayList<>();
+        accs = p.getAllAccount();
+        for (Account o : accs) {
+            System.out.println(o);
+        }
+
+    }
 
 }

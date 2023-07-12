@@ -35,7 +35,7 @@ public class LoadAccountControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("id");
+        String id = request.getParameter("aid");
         ProductDAL dao = new ProductDAL();
         Account acc=dao.getAccountById(id);
         request.setAttribute("detail", acc);
