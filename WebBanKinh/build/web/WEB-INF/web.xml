@@ -71,6 +71,26 @@
         <servlet-name>LogOutControl</servlet-name>
         <servlet-class>Controller.LogOutControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileControl</servlet-name>
+        <servlet-class>Controller.ProfileControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageAccount</servlet-name>
+        <servlet-class>Controller.ManageAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadAccountControl</servlet-name>
+        <servlet-class>Controller.LoadAccountControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountControl</servlet-name>
+        <servlet-class>Controller.DeleteAccountControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAccountControl</servlet-name>
+        <servlet-class>Controller.AddAccountControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -138,6 +158,26 @@
     <servlet-mapping>
         <servlet-name>LogOutControl</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileControl</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageAccount</servlet-name>
+        <url-pattern>/manageaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadAccountControl</servlet-name>
+        <url-pattern>/loadaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountControl</servlet-name>
+        <url-pattern>/deleteaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountControl</servlet-name>
+        <url-pattern>/addaccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

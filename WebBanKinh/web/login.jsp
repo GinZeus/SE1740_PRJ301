@@ -55,18 +55,18 @@
                             <p class="text-danger">${mess}</p>
                             <form class="text-left clearfix" action="login" method="post">
                                 <div class="form-group">
-                                    <input name="user" type="text" class="form-control"  placeholder="Username">
+                                    <input name="user" type="text" class="form-control"  placeholder="Username" value="${username1}">
                                 </div>
                                 <div class="form-group">
-                                    <input name="pass" type="password" class="form-control" placeholder="Password">
+                                    <input name="pass" type="password" class="form-control" placeholder="Password" value="${password1}">
                                 </div>
-                                <input type="checkbox" name ="remember" value="remember"/>Ghi nhớ đăng nhập<br/>
+                                <input type="checkbox" name ="remember" value="1"/>Ghi nhớ đăng nhập<br/>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-main text-center" >Đăng nhập</button>
                                 </div>
                             </form>
                             <p class="mt-20">Chưa có tài khoản?<a href="signup.jsp">Tạo tài khoản mới</a></p>
-                            <p><a href="forget-password.jsp">Quên mật khẩu</a></p>
+<!--                            <p><a href="forget-password.jsp">Quên mật khẩu</a></p>-->
                         </div>
                     </div>
                 </div>

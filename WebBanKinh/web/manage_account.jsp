@@ -1,6 +1,6 @@
 <%-- 
-    Document   : manage_product
-    Created on : Jul 10, 2023, 5:32:36 PM
+    Document   : manage_account
+    Created on : Jul 12, 2023, 9:24:12 AM
     Author     : datng
 --%>
 
@@ -17,9 +17,9 @@
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="css/manageproduct.css">
         <script type="text/javascript">
             function confirmDelete(id) {
-                if (confirm("Xóa sản phẩm id=" + id + "?")) {
+                if (confirm("Xóa Account id=" + id + "?")) {
                     
-                  window.location= "deleteproduct?pid=" + id;
+                  window.location= "deleteaccount?id=" + id;
                         
                 }
             }
@@ -32,10 +32,10 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <a href="homecontroll" style="color: white; text-decoration: none"><h2>Manage <b>Products</b></h2></a>
+                            <a href="homecontroll" style="color: white; text-decoration: none"><h2>Manage <b>Account</b></h2></a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Account</span></a>
                             
                         </div>
                     </div>
@@ -45,28 +45,30 @@
                         <tr>
                             
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Category ID</th>
-                            <th>Brand ID</th>
-                            <th>Price</th>
-                            <th>Image</th>
-                            <th>Create Time</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Fullname</th>
+                            <th>Address</th>
+                            <th>Phone number</th>
+                            <th>Role ID</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${listAllP}" var="o">
+                    <c:forEach items="${listAllAcc}" var="o">
                          <tr>
                             <td>${o.id}</td>
-                            <td>${o.name}</td>
-                            <td>${o.category_id}</td>
-                            <td>${o.brand_id}</td>
-                            <td>${o.price}</td>
-                            <td><img src="${o.imageurl}" alt="alt" style="width: 50px; height: 50px"/></td>
-                            <td>${o.createTime}</td>
+                            <td>${o.user}</td>
+                            <td>${o.pass}</td>
+                            <td>${o.email}</td>
+                            <td>${o.fullname}</td>
+                            <td>${o.address}</td>
+                            <td>${o.phone}</td>
+                            <td>${o.role}</td>
                             <td>
-                                <a href="loadproduct?pid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="loadaccount?aid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a onclick="confirmDelete(${o.id})" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                <a href="enterinfo?pid=${o.id}" class="addinfo" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="AddInfo">&#xe146;</i></a>
+                                
                             </td>
                         </tr>
                     </c:forEach>
@@ -74,54 +76,41 @@
                         
                     </tbody>
                 </table>
-                <div class="clearfix">
-                    
-                    <ul class="pagination">
-                        <c:forEach begin="1" end="${endP}" var="i">
-                            <li class="${tag==i?"active":""}"class="page-item"><a href="manageproduct?index=${i}" class="page-link">${i}</a></li>
-                        </c:forEach>
-                        
-                    </ul>
-                </div>
             </div>
         </div>
         <!-- Edit Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="addproduct" method="post">
+                    <form action="addaccount" method="post">
                         <div class="modal-header">
-                            <h4 class="modal-title">Add Product</h4>
+                            <h4 class="modal-title">Add Account</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
+                                <label>User</label>
+                                <input name="user" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="text" class="form-control" required>
+                                <label>Pass</label>
+                                <input name="pass" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required></input>
+                                <label>Fullname</label>
+                                <input name="name" type="text" class="form-control" required></input>
                             </div>
                             <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
-                                    </c:forEach>
-                                </select>
+                                <label>Email</label>
+                                <input name="email" type="text" class="form-control" required></input>
                             </div>
                             <div class="form-group">
-                                <label>Brand</label>
-                                <select name="brand" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listB}" var="o">
-                                        <option value="${o.bid}">${o.bname}</option>
-                                    </c:forEach>
-                                </select>
+                                <label>Address</label>
+                                <input name="address" type="text" class="form-control" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input name="phone" type="text" class="form-control" required></input>
                             </div>
                             
                         </div>

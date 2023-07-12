@@ -67,9 +67,19 @@
                                 <div class="form-group">
                                     <input name="repass" type="password" class="form-control"  placeholder="Repeat Password" required>
                                 </div>
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control"  placeholder="Fullname" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="address" type="text" class="form-control"  placeholder="Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="phone" type="text" class="form-control"  placeholder="phone" required>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-main text-center">Đăng kí</button>
                                 </div>
+                                
                             </form>
                             <p class="mt-20">Đã có tài khoản?<a href="login.jsp"> Đăng nhập</a></p>
                             

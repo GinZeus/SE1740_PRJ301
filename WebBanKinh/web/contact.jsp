@@ -112,7 +112,9 @@
                         <!-- Contact Details -->
                         <div class="contact-details col-md-6 " >
                             <div class="google-map">
-                                <div id="map"></div>
+                                <div id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4855347082876!2d105.52448937492858!3d21.01324998063223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBGUFQ!5e0!3m2!1svi!2s!4v1689092582099!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
                             </div>
                             <ul class="contact-short-info" >
                                 <li>

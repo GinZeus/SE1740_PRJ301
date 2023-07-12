@@ -34,6 +34,9 @@ public class SignUpControl extends HttpServlet {
         String email=request.getParameter("email");
         String pass=request.getParameter("pass");
         String repass=request.getParameter("repass");
+        String name=request.getParameter("name");
+        String address=request.getParameter("address");
+        String phone=request.getParameter("phone");
         if(!pass.equals(repass)){
             request.setAttribute("mess", "Password và Re-password không khớp. Vui lòng nhập lại");
             request.getRequestDispatcher("signup.jsp").forward(request, response);
@@ -41,8 +44,8 @@ public class SignUpControl extends HttpServlet {
             ProductDAL dao= new ProductDAL();
             Account a =dao.checkAccountExist(user);
             if(a==null){
-                dao.signup(user, pass, email);
-                response.sendRedirect("homecontroll");
+                dao.signup(user, pass, email, name, address, phone);
+                response.sendRedirect("login");
             }else{
                 request.setAttribute("mess", "Tài khoản đã tồn tại. Vui lòng nhập tài khoản khác");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);

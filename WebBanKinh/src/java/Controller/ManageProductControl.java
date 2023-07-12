@@ -43,13 +43,25 @@ public class ManageProductControl extends HttpServlet {
             int role_id = ac.getRole();
             if (role_id == 1) {
                 response.setContentType("text/html;charset=UTF-8");
+                String indexPage = request.getParameter("index");
+                if (indexPage == null) {
+                    indexPage = "1";
+                }
+                int index = Integer.parseInt(indexPage);
                 ProductDAL p = new ProductDAL();
-                ArrayList<Product> products = p.getAllProducts();
+                ArrayList<Product> products = p.pagingProduct(index);
                 request.setAttribute("listAllP", products);
                 ArrayList<Category> categories = p.getAllCategory();
                 request.setAttribute("listC", categories);
                 ArrayList<Brand> brands = p.getAllBrand();
                 request.setAttribute("listB", brands);
+                int count = p.getTotalProduct();
+                int endPage = count / 9;
+                if (count % 9 != 0) {
+                    endPage++;
+                }
+                request.setAttribute("tag", index);
+                request.setAttribute("endP", endPage);
                 request.getRequestDispatcher("manage_product.jsp").forward(request, response);
             } else {
                 response.sendRedirect("login.jsp");

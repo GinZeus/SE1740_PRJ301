@@ -44,6 +44,76 @@ public class ProductDAL extends BaseDAO{
         }
         return products;
     }
+     public ArrayList<Account> getAllAccount() {
+        ArrayList<Account> accounts = new ArrayList<>();
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Account]"
+                    + "where deleted=0";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                Account acc = new Account();
+                acc.setId(rs.getInt("id"));
+                acc.setUser(rs.getString("username"));
+                acc.setPass(rs.getString("password"));
+                acc.setEmail(rs.getString("email"));
+                acc.setRole(rs.getInt("role"));
+                acc.setFullname(rs.getNString("fullname"));
+                acc.setAddress(rs.getNString("address"));
+                acc.setPhone(rs.getString("phone_number"));
+                acc.setDeleted(rs.getInt("deleted"));
+                accounts.add(acc);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return accounts;
+    }
+     public Account getAccountById(String accid) {
+        
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Account]"
+                    + "WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, accid);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                Account acc = new Account();
+                acc.setId(rs.getInt("id"));
+                acc.setUser(rs.getString("username"));
+                acc.setPass(rs.getString("password"));
+                acc.setEmail(rs.getString("email"));
+                acc.setRole(rs.getInt("role"));
+                acc.setFullname(rs.getNString("fullname"));
+                acc.setAddress(rs.getNString("address"));
+                acc.setPhone(rs.getString("phone_number"));
+                acc.setDeleted(rs.getInt("deleted"));
+                return acc;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     
+     public void deleteAccount(String id) {
+        try {
+            String sql = "update Account "
+                    + "set [deleted]=1\n" +
+                      "where id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.executeUpdate();         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+     
     public ArrayList<Product> getTop6Products() {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -187,7 +257,7 @@ public class ProductDAL extends BaseDAO{
         return brands;
     }
     public Product getProductById(String pid) {
-        ArrayList<Product> products = new ArrayList<>();
+        
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
@@ -243,9 +313,10 @@ public class ProductDAL extends BaseDAO{
     }
     public Account login(String user, String pass){
         try {
-            String sql = "select * from Account \n" +
-                         "where [username] = ?\n" +
-                         "and [password] = ?";
+            String sql = "select * from [Account]\n" +
+                         "where username=?\n" +
+                         "and password = ?\n" +
+                         "and deleted = 0";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             statement.setString(2, pass);
@@ -258,6 +329,10 @@ public class ProductDAL extends BaseDAO{
                 acc.setPass(rs.getString("password"));
                 acc.setEmail(rs.getString("email"));
                 acc.setRole(rs.getInt("role"));
+                acc.setFullname(rs.getNString("fullname"));
+                acc.setAddress(rs.getNString("address"));
+                acc.setPhone(rs.getString("phone_number"));
+                acc.setDeleted(rs.getInt("deleted"));
                 return acc;
                 
             }
@@ -289,14 +364,17 @@ public class ProductDAL extends BaseDAO{
         }
         return null;
     }
-    public void signup(String user, String pass, String email){
+    public void signup(String user, String pass, String email, String name, String address, String phone){
         try {
             String sql = "insert into Account \n" +
-                         "values (?,?,?,'2')";
+                         "values (?,?,?,'2',?,?,?,'0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             statement.setString(2, pass);
             statement.setString(3, email);
+            statement.setString(4, name);
+            statement.setString(5, address);
+            statement.setString(6, phone);
             statement.executeUpdate();
             
         } catch (SQLException ex) {
@@ -374,23 +452,85 @@ public class ProductDAL extends BaseDAO{
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public int getTotalProduct() {
+         try {
+            String sql = "select count(*) from Product";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                return rs.getInt(1);
+            }         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+//    public int getTotalProductCategory(String cid) {
+//         try {
+//            String sql = "select count(*) from Product\n" +
+//                         "where category_id = ?";
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            statement.setString(1, cid);
+//            ResultSet rs = statement.executeQuery();
+//            while(rs.next()){
+//                return rs.getInt(1);
+//            }         
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return 0;
+//    }
+//    public int getTotalProductBrand(String bid) {
+//         try {
+//            String sql = "select count(*) from Product\n" +
+//                         "where brand_id = ?";
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            statement.setString(1, bid);
+//            ResultSet rs = statement.executeQuery();
+//            while(rs.next()){
+//                return rs.getInt(1);
+//            }         
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return 0;
+//    }
+    public ArrayList<Product> pagingProduct(int index) {
+        ArrayList<Product> list=new ArrayList<>();
+        try {
+            String sql = "select * from Product\n" +
+                         "order by product_id\n" +
+                         "offset ? rows fetch next 9 rows only";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,(index-1)*9 );
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                Product s = new Product();
+                s.setId(rs.getInt("product_id"));
+                s.setName(rs.getString("product_name"));
+                s.setCategory_id(rs.getInt("category_id"));
+                s.setBrand_id(rs.getInt("brand_id"));
+                s.setImageurl(rs.getString("imageUrl"));
+                s.setPrice(rs.getDouble("price"));
+                s.setCreateTime(rs.getDate("create_time"));
+                list.add(s);
+            }         
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
      public static void main(String[] args) {
         ProductDAL p=new ProductDAL();
-//        ArrayList<Product> products = p.getAllProducts();
-//        ArrayList<Category> categories = p.getAllCategory();
-//        ArrayList<Brand> brands = p.getAllBrand();
-//        ArrayList<Product> productcid = p.getProductByCid("1");
-//        ArrayList<Product> productbid = p.getProductByBid("1");
-//        ArrayList<Product> search = p.searchByName("KR");
-//        Info infoProducts=p.getInfoByID("12");
-//        Account acc=new Account();
-//        acc=p.login("admin", "admin1");
-//        for (Product o:search){
-//            System.out.println(o);
-//        }
-////         System.out.println(infoProducts);
-//         System.out.println(acc);
-         p.deleteProduct("36");
+
+//         Account acctest=p.getAccountById("1");
+//         System.out.println(acctest);
+         p.deleteAccount("10");
+         ArrayList<Account> accs=new ArrayList<>();
+         accs=p.getAllAccount();
+         for (Account o:accs) {
+             System.out.println(o);
+         }
         
      }
 

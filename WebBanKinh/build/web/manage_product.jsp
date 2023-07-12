@@ -10,12 +10,20 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
-        <title>CodePen - Bootstrap : CRUD Table</title>
+        <title>Manage Product</title>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round'>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="css/manageproduct.css">
-
+        <script type="text/javascript">
+            function confirmDelete(id) {
+                if (confirm("Xóa sản phẩm id=" + id + "?")) {
+                    
+                  window.location= "deleteproduct?pid=" + id;
+                        
+                }
+            }
+        </script>
     </head>
     <body>
         <!-- partial:index.partial.html -->
@@ -28,7 +36,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -57,7 +65,7 @@
                             <td>${o.createTime}</td>
                             <td>
                                 <a href="loadproduct?pid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="deleteproduct?pid=${o.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a onclick="confirmDelete(${o.id})" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 <a href="enterinfo?pid=${o.id}" class="addinfo" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="AddInfo">&#xe146;</i></a>
                             </td>
                         </tr>
@@ -67,15 +75,12 @@
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                    
                     <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                        <c:forEach begin="1" end="${endP}" var="i">
+                            <li class="${tag==i?"active":""}"class="page-item"><a href="manageproduct?index=${i}" class="page-link">${i}</a></li>
+                        </c:forEach>
+                        
                     </ul>
                 </div>
             </div>

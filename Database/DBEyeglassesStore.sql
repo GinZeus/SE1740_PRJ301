@@ -10,25 +10,30 @@ create table [Account](
 	[username] varchar(32) ,
 	[password] varchar(32) ,
 	[email] varchar(150),
-	[role] int
+	[fullname] nvarchar(255),
+	[address] nvarchar(255),
+	[phone_number] varchar(20),
+	[DOB] datetime,
+	[role] int,
+	[deleted] int
 );
+
+delete from Account where id = 10
+
+select * from [Account]
+
+update Account set [de]=?
+where id=11
+
 
 select * from Account 
 where [username] = ?
 and [password] = ?
 
+alter table [Account]
+add [DOB] datetime,
 
 
-create table [User](
-	[user_id] int not null  primary key,	
-	[fullname] nvarchar(255) ,
-	[address] nvarchar(255),
-	[phone_number] varchar(20),
-	[country] nvarchar(255),
-	[DOB] datetime,
-	[deleted] int, 
-	FOREIGN KEY (user_id) REFERENCES [Account](id)
-);
 
 create table [Brand](
 	[brand_id] int not null identity(1,1) primary key,
@@ -48,8 +53,9 @@ create table [Order](
 	[oder_date] DATETIME ,
 	[status] int ,
 	[total_money] float ,
-	FOREIGN KEY (user_id) REFERENCES [User](user_id) 
+	FOREIGN KEY (user_id) REFERENCES [Account](id) 
 );
+--drop table [Order]
 
 create table [Category](
 	[category_id] int not null identity(1,1) primary key,	
@@ -69,6 +75,13 @@ create table [Product](
 );
 select * from Product
 
+select count(*) from Product
+where category_id = 5
+
+select * from Product
+order by product_id
+offset 9 rows fetch next 9 rows only
+
 delete from Info
 where info_id =?
 delete from Product
@@ -83,6 +96,7 @@ create table [OrderDetails](
 	FOREIGN KEY (order_id) REFERENCES [Order](order_id),
 	FOREIGN KEY (product_id) REFERENCES [Product](product_id) 
 );
+--drop table OrderDetails
 
 create table [Info](
 	[info_id] int not null  primary key,
@@ -105,9 +119,10 @@ create table [Feedback](
 	[status] int ,
 	[create_time] DATETIME ,
 	[update_time] DATETIME ,
-	FOREIGN KEY (user_id) REFERENCES [User](user_id),
+	FOREIGN KEY (user_id) REFERENCES [Account](id),
 	FOREIGN KEY (product_id) REFERENCES [Product](product_id)
 );
+--drop table feedback
 --Category
 insert into [Category] values (N'Kính râm')
 insert into [Category] values (N'Gọng kính')

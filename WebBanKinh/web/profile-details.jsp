@@ -4,6 +4,7 @@
     Author     : datng
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,44 +45,45 @@
     <body id="body">
         <!-- Start Top Header Bar -->
         <jsp:include page="header/headerlevel1.jsp"></jsp:include>
-        <!-- End Top Header Bar -->
+            <!-- End Top Header Bar -->
 
-        <!-- Start Main Menu Section -->
+            <!-- Start Main Menu Section -->
         <jsp:include page="header/menu1.jsp"></jsp:include>
-        <!-- End Main Menu Section -->
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="content">
-                            <h1 class="page-name">Profile</h1>
-                            <ol class="breadcrumb">
-                                <li><a href="home.jsp">Home</a></li>
-                                <li class="active">Profile</li>
-                            </ol>
+            <!-- End Main Menu Section -->
+            <section class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content">
+                                <h1 class="page-name">Profile</h1>
+                                <ol class="breadcrumb">
+                                    <li><a href="home.jsp">Home</a></li>
+                                    <li class="active">Profile</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="user-dashboard page-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <jsp:include page="header/headerprofile.jsp"></jsp:include>
-                        <div class="dashboard-wrapper dashboard-user-profile">
-                            <div class="media">
-                                <div class="pull-left text-center" href="#!">
-                                    <img class="media-object user-img" src="images/avater.jpg" alt="Image">
-                                    <a href="#x" class="btn btn-transparent mt-20">Change Image</a>
-                                </div>
-                                <div class="media-body">
-                                    <ul class="user-profile-list">
-                                        <li><span>Full Name:</span>Johanna Doe</li>
-                                        <li><span>Country:</span>USA</li>
-                                        <li><span>Email:</span>mail@gmail.com</li>
-                                        <li><span>Phone:</span>+880123123</li>
-                                        <li><span>Date of Birth:</span>Dec , 22 ,1991</li>
+            </section>
+            <section class="user-dashboard page-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="dashboard-wrapper dashboard-user-profile">
+                                <div class="media">
+                                    <div class="pull-left text-center" href="#!">
+                                        <img class="media-object user-img" src="https://nhanvietluanvan.com/wp-content/uploads/2023/05/c6e56503cfdd87da299f72dc416023d4-736x620.jpg" alt="Image">
+
+                                    </div>
+                                    <div class="media-body">
+                                        <ul class="user-profile-list">
+                                            <c:if test="${sessionScope.account!=null}">
+                                                <li><span>Full Name:</span>${sessionScope.account.fullname}</li>
+                                                <li><span>Email:</span>${sessionScope.account.email}</li>
+                                                <li><span>Address:</span>${sessionScope.account.address}</li>
+                                                <li><span>Phone:</span>${sessionScope.account.phone}</li>
+                                            </c:if>
                                     </ul>
                                 </div>
                             </div>

@@ -43,6 +43,12 @@ public class CategoryControl extends HttpServlet {
         request.setAttribute("listC", categories);
         ArrayList<Brand> brands = dao.getAllBrand();
         request.setAttribute("listB", brands);
+//        int count = dao.getTotalProductCategory(cateID);
+//        int endPage = count / 9;
+//        if (count % 9 != 0) {
+//            endPage++;
+//        }
+//        request.setAttribute("endP", endPage);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     } 
 

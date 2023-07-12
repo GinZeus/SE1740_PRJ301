@@ -14,17 +14,61 @@ public class Account {
     private String pass;
     private String email;
     private int role;
+    private String fullname;
+    private String address;
+    private String phone;
+    private int deleted;
 
     public Account() {
     }
 
-    public Account(int id, String user, String pass, String email, int role) {
+    public Account(int id, String user, String pass, String email, int role, String fullname, String address, String phone, int deleted) {
         this.id = id;
         this.user = user;
         this.pass = pass;
         this.email = email;
         this.role = role;
+        this.fullname = fullname;
+        this.address = address;
+        this.phone = phone;
+        this.deleted = deleted;
     }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+
+    
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -68,7 +112,9 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", user=" + user + ", pass=" + pass + ", email=" + email + ", role=" + role + '}';
+        return "Account{" + "id=" + id + ", user=" + user + ", pass=" + pass + ", email=" + email + ", role=" + role + ", fullname=" + fullname + ", address=" + address + ", phone=" + phone + '}';
     }
+
+    
     
 }

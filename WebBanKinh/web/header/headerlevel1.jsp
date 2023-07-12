@@ -33,7 +33,8 @@
                                             <!-- Basic -->
                                             <div class="col-lg-12 col-md-12 mb-sm-3">
                                                 <ul>
-                                                    <li><a href="manageproduct" class="btn btn-small btn-solid-border" style="width: 100%">Quản lý sản phẩm</a></li>                                                       
+                                                    <li><a href="manageproduct" class="btn btn-small btn-solid-border" style="width: 100%">Quản lý sản phẩm</a></li> 
+                                                    <li><a href="manageaccount" class="btn btn-small btn-solid-border" style="width: 100%">Quản  lý tài khoản</a></li> 
                                                 </ul>
                                             </div>
                                         </div><!-- / .row -->
@@ -142,7 +143,7 @@
                                         <div class="col-lg-12 col-md-12 mb-sm-3">
                                             <ul>
                                                 <c:if test="${sessionScope.account==null}">
-                                                    <li><a href="login.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Đăng nhập</a></li>
+                                                    <li><a href="login" class="btn btn-small btn-solid-border" style="width: 100%">Đăng nhập</a></li>
                                                     <li><a href="signup.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Đăng ký</a></li>
                                                     </c:if>
                                                     <c:if test="${sessionScope.account!=null}">
