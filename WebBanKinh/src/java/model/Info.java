@@ -18,7 +18,6 @@ public class Info {
     private String imageUrl2;
     private String imageUrl3;
     private double price;
-
     public Info() {
     }
 
@@ -27,12 +26,14 @@ public class Info {
         this.material = material;
         this.color = color;
         this.title = title;
-        this.price=price;
         this.description = description;
         this.imageUrl1 = imageUrl1;
         this.imageUrl2 = imageUrl2;
         this.imageUrl3 = imageUrl3;
+        this.price = price;
     }
+
+    
 
     public double getPrice() {
         return price;

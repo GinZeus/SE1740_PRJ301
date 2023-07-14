@@ -12,12 +12,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.Account;
+import model.Order;
 
 /**
  *
  * @author datng
  */
-public class DeleteAccountControl extends HttpServlet {
+public class ManageOrderControl extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,10 +33,26 @@ public class DeleteAccountControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("id");
-        ProductDAL dao = new ProductDAL();
-        dao.deleteAccount(id);
-        response.sendRedirect("manageaccount");
+        HttpSession session = request.getSession();
+        Account ac = (Account) session.getAttribute("account");
+
+        if (ac != null) {
+            int role_id = ac.getRole();
+            if (role_id == 1) {
+                response.setContentType("text/html;charset=UTF-8");
+                
+                ProductDAL p = new ProductDAL();
+                ArrayList<Order> ords=new ArrayList<>();
+                ords=p.getAllOrder();
+                request.setAttribute("listAllOrder", ords);
+                
+                request.getRequestDispatcher("manage_order.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("login.jsp");
+            }
+        } else {
+            response.sendRedirect("login.jsp");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

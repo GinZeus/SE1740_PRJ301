@@ -18,11 +18,12 @@ public class Product {
     private double price;
     private String imageurl;
     private Date createTime;
+    private int deleted;
     
     public Product(){
     }
 
-    public Product(int id, String name, int category_id, int brand_id, double price, String imageurl, Date createTime) {
+    public Product(int id, String name, int category_id, int brand_id, double price, String imageurl, Date createTime, int deleted) {
         this.id = id;
         this.name = name;
         this.category_id = category_id;
@@ -30,6 +31,15 @@ public class Product {
         this.price = price;
         this.imageurl = imageurl;
         this.createTime = createTime;
+        this.deleted = deleted;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 
     public int getId() {

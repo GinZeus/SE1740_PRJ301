@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author datng
  */
-public class DeleteAccountControl extends HttpServlet {
+public class DeleteOrderControl extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,10 +29,10 @@ public class DeleteAccountControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("id");
+        String oid = request.getParameter("oid");
         ProductDAL dao = new ProductDAL();
-        dao.deleteAccount(id);
-        response.sendRedirect("manageaccount");
+        dao.deleteOrder(oid);
+        response.sendRedirect("manageorder");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

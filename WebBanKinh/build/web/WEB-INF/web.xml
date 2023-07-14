@@ -111,6 +111,14 @@
         <servlet-name>CheckoutControl</servlet-name>
         <servlet-class>Controller.CheckoutControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageOrderControl</servlet-name>
+        <servlet-class>Controller.ManageOrderControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrderControl</servlet-name>
+        <servlet-class>Controller.DeleteOrderControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -218,6 +226,14 @@
     <servlet-mapping>
         <servlet-name>CheckoutControl</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageOrderControl</servlet-name>
+        <url-pattern>/manageorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderControl</servlet-name>
+        <url-pattern>/deleteorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -66,9 +66,13 @@ create table [Product](
 	[price] float ,
 	[imageUrl] varchar(900),
 	[create_time] DATETIME ,
+	[deleted] int,
 	FOREIGN KEY (category_id) REFERENCES [Category](category_id) ,
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id)	 
 );
+select * from Product where deleted = 0
+
+
 
 create table [OrderDetails](
 	[od_id] int not null identity(1,1) primary key,
@@ -97,6 +101,19 @@ create table [Info](
 	FOREIGN KEY (info_id) REFERENCES [Product](product_id) 
 );
 
+SELECT * FROM [Product]
+WHERE category_id=1
+and deleted = 0
+
+select * from Product
+where deleted = 0
+order by product_id
+offset 0 rows fetch next 9 rows only
+
+select * from Product
+select * from Info i, Product p
+where i.info_id=p.product_id
+select COUNT(*) from Product where deleted=0
 create table [Feedback](
 	[feedback_id] int not null identity(1,1) primary key,
 	[user_id] int ,

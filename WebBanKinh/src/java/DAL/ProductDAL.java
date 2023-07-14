@@ -17,6 +17,7 @@ import model.Cart;
 import model.Category;
 import model.Info;
 import model.Item;
+import model.Order;
 import model.Product;
 
 /**
@@ -29,7 +30,8 @@ public class ProductDAL extends BaseDAO {
         ArrayList<Product> products = new ArrayList<>();
         try {
             String sql = "SELECT *"
-                    + "  FROM [Product]";
+                    + "  FROM [Product]"
+                    + "where deleted=0";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -41,6 +43,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -143,11 +146,54 @@ public class ProductDAL extends BaseDAO {
         }
     }
 
+    public ArrayList<Order> getAllOrder() {
+        ArrayList<Order> orders = new ArrayList<>();
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Order]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order ord = new Order();
+                ord.setOrder_id(rs.getInt("order_id"));
+                ord.setUser_id(rs.getInt("user_id"));
+                ord.setFullname(rs.getNString("fullname"));
+                ord.setAddress(rs.getNString("address"));
+                ord.setEmail(rs.getString("email"));
+                ord.setPhone_number(rs.getString("phone_number"));
+                ord.setNote(rs.getNString("note"));
+                ord.setDate(rs.getDate("oder_date"));
+                ord.setStatus(rs.getInt("status"));
+                ord.setTotal_money(rs.getDouble("total_money"));
+                orders.add(ord);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return orders;
+    }
+
+    public void deleteOrder(String oid) {
+        try {
+            String sql = "delete from OrderDetails\n"
+                    + "where order_id =?\n"
+                    + "delete from [Order]\n"
+                    + "where order_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, oid);
+            statement.setString(2, oid);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public ArrayList<Product> getTop6Products() {
         ArrayList<Product> products = new ArrayList<>();
         try {
             String sql = "SELECT TOP 6 *"
-                    + "  FROM [Product]";
+                    + "  FROM [Product]"
+                    + "where deleted = 0";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -159,6 +205,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -166,11 +213,13 @@ public class ProductDAL extends BaseDAO {
         }
         return products;
     }
+
     public ArrayList<Product> getRandomProducts() {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "select top 4 * from Product\n" +
-                         "order by NEWID()";
+            String sql = "select top 4 * from Product\n"
+                    + "where deleted = 0"
+                    + "order by NEWID()";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -182,6 +231,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -195,7 +245,8 @@ public class ProductDAL extends BaseDAO {
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
-                    + "WHERE category_id=?";
+                    + "WHERE deleted=0"
+                    + "and category_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, cid);
             ResultSet rs = statement.executeQuery();
@@ -208,6 +259,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -221,7 +273,8 @@ public class ProductDAL extends BaseDAO {
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
-                    + "WHERE brand_id=?";
+                    + "WHERE deleted=0"
+                    + "and brand_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, bid);
             ResultSet rs = statement.executeQuery();
@@ -234,6 +287,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -247,7 +301,8 @@ public class ProductDAL extends BaseDAO {
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
-                    + "WHERE product_name like ?";
+                    + "WHERE deleted=0"
+                    + "and product_name like ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, "%" + txtSearch + "%");
             ResultSet rs = statement.executeQuery();
@@ -260,6 +315,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -312,7 +368,8 @@ public class ProductDAL extends BaseDAO {
         try {
             String sql = "SELECT *"
                     + "  FROM [Product]"
-                    + "WHERE product_id=?";
+                    + "WHERE deleted=0"
+                    + "and product_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pid);
             ResultSet rs = statement.executeQuery();
@@ -325,6 +382,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 return s;
             }
         } catch (SQLException ex) {
@@ -338,6 +396,7 @@ public class ProductDAL extends BaseDAO {
             String sql = "select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 \n"
                     + "from Info i, Product p\n"
                     + "where i.info_id=p.product_id\n"
+                    + "and p.deleted=0"
                     + "and info_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
@@ -435,13 +494,11 @@ public class ProductDAL extends BaseDAO {
 
     public void deleteProduct(String pid) {
         try {
-            String sql = "delete from Info\n"
-                    + "where info_id =?\n"
-                    + "delete from Product\n"
+            String sql = "update Product "
+                    + "set [deleted]=1\n"
                     + "where product_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pid);
-            statement.setString(2, pid);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
@@ -451,8 +508,8 @@ public class ProductDAL extends BaseDAO {
     public void insertProduct(String name, String image, String price, String category, String brand) {
         try {
             String sql = "insert into [Product]"
-                    + "(product_name,category_id,brand_id,price,imageUrl,create_time)"
-                    + " values(?,?,?,?,?,GETDATE())";
+                    + "(product_name,category_id,brand_id,price,imageUrl,create_time,deleted)"
+                    + " values(?,?,?,?,?,GETDATE(),'0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, category);
@@ -510,7 +567,7 @@ public class ProductDAL extends BaseDAO {
 
     public int getTotalProduct() {
         try {
-            String sql = "select count(*) from Product";
+            String sql = "select count(*) from Product where deleted=0";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -521,10 +578,11 @@ public class ProductDAL extends BaseDAO {
         }
         return 0;
     }
+
     public ArrayList<Product> pagingProduct(int index) {
         ArrayList<Product> list = new ArrayList<>();
         try {
-            String sql = "select * from Product\n"
+            String sql = "select * from Product where deleted=0"
                     + "order by product_id\n"
                     + "offset ? rows fetch next 9 rows only";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -539,6 +597,7 @@ public class ProductDAL extends BaseDAO {
                 s.setImageurl(rs.getString("imageUrl"));
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
+                s.setDeleted(rs.getInt("deleted"));
                 list.add(s);
             }
         } catch (SQLException ex) {
@@ -546,15 +605,15 @@ public class ProductDAL extends BaseDAO {
         }
         return list;
     }
-    
-    public void addOrder(String id, String name, String address, String email, String phone, String note, Cart cart){
+
+    public void addOrder(String id, String name, String address, String email, String phone, String note, Cart cart) {
         LocalDate curDate = LocalDate.now();
         String date = curDate.toString();
-        try{
+        try {
             //add order
             String sql = "insert into [Order] "
                     + "values (?,?,?,?,?,?,?,'1',?)";
-            PreparedStatement statement=connection.prepareStatement(sql);
+            PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             statement.setString(2, name);
             statement.setString(3, address);
@@ -564,52 +623,42 @@ public class ProductDAL extends BaseDAO {
             statement.setString(7, date);
             statement.setDouble(8, cart.getTotalMoney());
             statement.executeUpdate();
-            
+
             //layid cua order vua add
             String sql1 = "select top 1 order_id from [Order] order by order_id desc";
-            PreparedStatement st1=connection.prepareStatement(sql1);
-            ResultSet rs=st1.executeQuery();
-            
+            PreparedStatement st1 = connection.prepareStatement(sql1);
+            ResultSet rs = st1.executeQuery();
+
             //add hang OrderDetail
-            if(rs.next()){
-                int oid=rs.getInt("order_id");
-                for(Item i:cart.getItems()) {
-                    String sql2="insert into [OrderDetails] "
+            if (rs.next()) {
+                int oid = rs.getInt("order_id");
+                for (Item i : cart.getItems()) {
+                    String sql2 = "insert into [OrderDetails] "
                             + "values (?,?,?,?)";
-                    PreparedStatement st2=connection.prepareStatement(sql2);
+                    PreparedStatement st2 = connection.prepareStatement(sql2);
                     st2.setInt(1, oid);
                     st2.setInt(2, i.getProduct().getId());
                     st2.setDouble(3, i.getPrice());
                     st2.setDouble(4, i.getQuantity());
                     st2.executeUpdate();
-                    
-                    
+
                 }
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
     public static void main(String[] args) {
         ProductDAL p = new ProductDAL();
-
-//         Account acctest=p.getAccountById("1");
-//         System.out.println(acctest);
-//        p.editAccount("abc123", "123456", "dat123@gmail.com", "1", "Ðat", "Ha NOi", "123456", "8");
-//        ArrayList<Account> accs = new ArrayList<>();
-//        accs = p.getAllAccount();
-//        for (Account o : accs) {
+//        ArrayList<Order> ord=p.getAllOrder();
+//        for(Order o:ord){
 //            System.out.println(o);
 //        }
-//        ArrayList<Product> pro=new ArrayList<>();
-//        pro=p.getTop6Products();
-//        for(Product o:pro) {
-//            System.out.println(o);
-//        }
-        
-
+        ArrayList<Product> pcid = p.pagingProduct(1);
+        for (Product o : pcid) {
+            System.out.println(pcid);
+        }
     }
 
 }

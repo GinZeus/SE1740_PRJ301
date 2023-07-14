@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author datng
@@ -28,14 +30,14 @@ public class Order {
     private String email;
     private String phone_number;
     private String note;
-    private String date;
+    private Date date;
     private int status;
     private double total_money;
 
     public Order() {
     }
 
-    public Order(int order_id, int user_id, String fullname, String address, String email, String phone_number, String note, String date, int status, double total_money) {
+    public Order(int order_id, int user_id, String fullname, String address, String email, String phone_number, String note, Date date, int status, double total_money) {
         this.order_id = order_id;
         this.user_id = user_id;
         this.fullname = fullname;
@@ -47,6 +49,17 @@ public class Order {
         this.status = status;
         this.total_money = total_money;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    
+
 
     public int getOrder_id() {
         return order_id;
@@ -102,14 +115,6 @@ public class Order {
 
     public void setNote(String note) {
         this.note = note;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public int getStatus() {

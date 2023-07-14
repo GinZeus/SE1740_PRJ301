@@ -130,14 +130,8 @@
                                 <p style="margin: 0">${detail.color}</p>
                             </div>
 
-                            <div class="product-quantity">
-                                <span>Số lượng:</span>
-                                <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="text" value="0" name="product-quantity">
-                                </div>
-                            </div>
 
-                            <a href="cart.jsp" class="btn btn-main mt-20">Thêm vào giỏ hàng</a>
+                            <a href="buy?pid=${detail.info_id}&num=1" class="btn btn-main mt-20">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>
