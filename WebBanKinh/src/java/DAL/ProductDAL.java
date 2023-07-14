@@ -7,13 +7,16 @@ package DAL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
 import model.Brand;
+import model.Cart;
 import model.Category;
 import model.Info;
+import model.Item;
 import model.Product;
 
 /**
@@ -145,6 +148,29 @@ public class ProductDAL extends BaseDAO {
         try {
             String sql = "SELECT TOP 6 *"
                     + "  FROM [Product]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product s = new Product();
+                s.setId(rs.getInt("product_id"));
+                s.setName(rs.getString("product_name"));
+                s.setCategory_id(rs.getInt("category_id"));
+                s.setBrand_id(rs.getInt("brand_id"));
+                s.setImageurl(rs.getString("imageUrl"));
+                s.setPrice(rs.getDouble("price"));
+                s.setCreateTime(rs.getDate("create_time"));
+                products.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    public ArrayList<Product> getRandomProducts() {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "select top 4 * from Product\n" +
+                         "order by NEWID()";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -392,7 +418,7 @@ public class ProductDAL extends BaseDAO {
     public void signup(String user, String pass, String email, String name, String address, String phone) {
         try {
             String sql = "insert into Account \n"
-                    + "values (?,?,?,'2',?,?,?,'0')";
+                    + "values (?,?,?,?,?,?,'2','0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user);
             statement.setString(2, pass);
@@ -495,37 +521,6 @@ public class ProductDAL extends BaseDAO {
         }
         return 0;
     }
-//    public int getTotalProductCategory(String cid) {
-//         try {
-//            String sql = "select count(*) from Product\n" +
-//                         "where category_id = ?";
-//            PreparedStatement statement = connection.prepareStatement(sql);
-//            statement.setString(1, cid);
-//            ResultSet rs = statement.executeQuery();
-//            while(rs.next()){
-//                return rs.getInt(1);
-//            }         
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return 0;
-//    }
-//    public int getTotalProductBrand(String bid) {
-//         try {
-//            String sql = "select count(*) from Product\n" +
-//                         "where brand_id = ?";
-//            PreparedStatement statement = connection.prepareStatement(sql);
-//            statement.setString(1, bid);
-//            ResultSet rs = statement.executeQuery();
-//            while(rs.next()){
-//                return rs.getInt(1);
-//            }         
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return 0;
-//    }
-
     public ArrayList<Product> pagingProduct(int index) {
         ArrayList<Product> list = new ArrayList<>();
         try {
@@ -551,18 +546,69 @@ public class ProductDAL extends BaseDAO {
         }
         return list;
     }
+    
+    public void addOrder(String id, String name, String address, String email, String phone, String note, Cart cart){
+        LocalDate curDate = LocalDate.now();
+        String date = curDate.toString();
+        try{
+            //add order
+            String sql = "insert into [Order] "
+                    + "values (?,?,?,?,?,?,?,'1',?)";
+            PreparedStatement statement=connection.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.setString(2, name);
+            statement.setString(3, address);
+            statement.setString(4, email);
+            statement.setString(5, phone);
+            statement.setString(6, note);
+            statement.setString(7, date);
+            statement.setDouble(8, cart.getTotalMoney());
+            statement.executeUpdate();
+            
+            //layid cua order vua add
+            String sql1 = "select top 1 order_id from [Order] order by order_id desc";
+            PreparedStatement st1=connection.prepareStatement(sql1);
+            ResultSet rs=st1.executeQuery();
+            
+            //add hang OrderDetail
+            if(rs.next()){
+                int oid=rs.getInt("order_id");
+                for(Item i:cart.getItems()) {
+                    String sql2="insert into [OrderDetails] "
+                            + "values (?,?,?,?)";
+                    PreparedStatement st2=connection.prepareStatement(sql2);
+                    st2.setInt(1, oid);
+                    st2.setInt(2, i.getProduct().getId());
+                    st2.setDouble(3, i.getPrice());
+                    st2.setDouble(4, i.getQuantity());
+                    st2.executeUpdate();
+                    
+                    
+                }
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
     public static void main(String[] args) {
         ProductDAL p = new ProductDAL();
 
 //         Account acctest=p.getAccountById("1");
 //         System.out.println(acctest);
-        p.editAccount("abc123", "123456", "dat123@gmail.com", "1", "Ðat", "Ha NOi", "123456", "8");
-        ArrayList<Account> accs = new ArrayList<>();
-        accs = p.getAllAccount();
-        for (Account o : accs) {
-            System.out.println(o);
-        }
+//        p.editAccount("abc123", "123456", "dat123@gmail.com", "1", "Ðat", "Ha NOi", "123456", "8");
+//        ArrayList<Account> accs = new ArrayList<>();
+//        accs = p.getAllAccount();
+//        for (Account o : accs) {
+//            System.out.println(o);
+//        }
+//        ArrayList<Product> pro=new ArrayList<>();
+//        pro=p.getTop6Products();
+//        for(Product o:pro) {
+//            System.out.println(o);
+//        }
+        
 
     }
 

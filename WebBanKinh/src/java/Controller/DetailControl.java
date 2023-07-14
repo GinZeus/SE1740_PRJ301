@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import model.Brand;
 import model.Category;
 import model.Info;
+import model.Product;
 
 /**
  *
@@ -37,6 +38,8 @@ public class DetailControl extends HttpServlet {
         ProductDAL dao = new ProductDAL();
         Info p=dao.getInfoByID(id);
         request.setAttribute("detail", p);
+        ArrayList<Product> products = dao.getRandomProducts();
+        request.setAttribute("listP", products);
         ArrayList<Category> categories = dao.getAllCategory();
         request.setAttribute("listC", categories);
         ArrayList<Brand> brands = dao.getAllBrand();

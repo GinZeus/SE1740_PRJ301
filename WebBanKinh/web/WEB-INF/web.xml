@@ -95,6 +95,22 @@
         <servlet-name>EditAccountControl</servlet-name>
         <servlet-class>Controller.EditAccountControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuyControl</servlet-name>
+        <servlet-class>Controller.BuyControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartControl</servlet-name>
+        <servlet-class>Controller.CartControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessControl</servlet-name>
+        <servlet-class>Controller.ProcessControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutControl</servlet-name>
+        <servlet-class>Controller.CheckoutControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -186,6 +202,22 @@
     <servlet-mapping>
         <servlet-name>EditAccountControl</servlet-name>
         <url-pattern>/editaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyControl</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartControl</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessControl</servlet-name>
+        <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutControl</servlet-name>
+        <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

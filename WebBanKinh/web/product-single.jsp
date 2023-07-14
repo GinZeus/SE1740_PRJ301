@@ -4,6 +4,7 @@
     Author     : datng
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,19 +45,19 @@
     <body id="body">
         <!-- Start Top Header Bar -->
         <jsp:include page="header/headerlevel1.jsp"></jsp:include>
-        <!-- End Top Header Bar -->
+            <!-- End Top Header Bar -->
 
-        <!-- Start Main Menu Section -->
+            <!-- Start Main Menu Section -->
         <jsp:include page="header/menu1.jsp"></jsp:include>
-        <!-- End Main Menu Section -->
-        <section class="single-product">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ol class="breadcrumb">
-                            <li><a href="homecontroll">Trang chủ</a></li>
-                            <li><a href="shop">Shop</a></li>
-                            <li class="active">${detail.title}</li>
+            <!-- End Main Menu Section -->
+            <section class="single-product">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ol class="breadcrumb">
+                                <li><a href="homecontroll">Trang chủ</a></li>
+                                <li><a href="shop">Shop</a></li>
+                                <li class="active">${detail.title}</li>
                         </ol>
                     </div>
                     <div class="col-md-6">
@@ -83,7 +84,7 @@
                                         <div class='item'>
                                             <img src='${detail.imageUrl3}' alt='' data-zoom-image="${detail.imageUrl3}" />
                                         </div>
-                                       
+
 
                                     </div>
 
@@ -107,7 +108,7 @@
                                     <li data-target='#carousel-custom' data-slide-to='2'>
                                         <img src='${detail.imageUrl3}' alt='' />
                                     </li>
-                                    
+
                                 </ol>
                             </div>
                         </div>
@@ -128,14 +129,14 @@
                                 <span>Màu sắc:</span>
                                 <p style="margin: 0">${detail.color}</p>
                             </div>
-                            
+
                             <div class="product-quantity">
                                 <span>Số lượng:</span>
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="text" value="0" name="product-quantity">
                                 </div>
                             </div>
-                            
+
                             <a href="cart.jsp" class="btn btn-main mt-20">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
@@ -151,7 +152,7 @@
                                 <div id="details" class="tab-pane fade active in">
                                     <h4>Thông tin Sản phẩm</h4>
                                     <p>${detail.description}</p>
-                                    
+
                                 </div>
                                 <div id="reviews" class="tab-pane fade">
                                     <div class="post-comments">
@@ -248,111 +249,34 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <span class="bage">Sale</span>
-                                <img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
+                    <c:forEach items="${listP}" var="o">
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <div class="product-thumb">
+                                    <img class="img-responsive" src="${o.imageurl}" alt="product-img" />
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <a href="detail?pid=${o.id}">
+                                                    <i class="tf-ion-ios-search-strong"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="buy?pid=${o.id}&num=1"><i class="tf-ion-android-cart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="detail?pid=${o.id}">${o.name}</a></h4>
+                                    <p class="price">$${o.price}</p>
                                 </div>
                             </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Reef Boardsport</a></h4>
-                                <p class="price">$200</p>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-1.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Strayhorn SP</a></h4>
-                                <p class="price">$230</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="images/shop/products/product-3.jpg" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search"></i>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">Bradley Mid</a></h4>
-                                <p class="price">$200</p>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
 
                 </div>
             </div>

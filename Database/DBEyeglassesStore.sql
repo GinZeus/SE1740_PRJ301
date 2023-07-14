@@ -18,22 +18,14 @@ create table [Account](
 	[deleted] int
 );
 
-delete from Account where id = 10
 
-select * from [Account]
+select * from Account
 
-update Account set [de]=?
-where id=11
+select top 4 * from Product
+order by NEWID()
 
-
-select * from Account 
-where [username] = ?
-and [password] = ?
-
-alter table [Account]
-add [DOB] datetime,
-
-
+insert into Account values ('admin','admin','admin@gmail.com','admin',N'việt nam','123456','1','0')
+insert into Account values ('test','test','test@gmail.com','test',N'việt nam','123456','2','0')
 
 create table [Brand](
 	[brand_id] int not null identity(1,1) primary key,
@@ -45,7 +37,7 @@ create table [Brand](
 create table [Order](
 	[order_id] int not null identity(1,1) primary key,
 	[user_id] int ,
-	[fullname] nvarchar(255) ,
+	[fullname] nvarchar(255),
 	[address] nvarchar(255),
 	[email] varchar(255),
 	[phone_number] varchar(20),
@@ -55,7 +47,11 @@ create table [Order](
 	[total_money] float ,
 	FOREIGN KEY (user_id) REFERENCES [Account](id) 
 );
+--
+select * from [Order]
 --drop table [Order]
+
+insert into [Order] values ('1',N'dat',N'viet nam','1@gmail.com','1234','test',GETDATE(),'1','20')
 
 create table [Category](
 	[category_id] int not null identity(1,1) primary key,	
@@ -73,30 +69,21 @@ create table [Product](
 	FOREIGN KEY (category_id) REFERENCES [Category](category_id) ,
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id)	 
 );
-select * from Product
 
-select count(*) from Product
-where category_id = 5
-
-select * from Product
-order by product_id
-offset 9 rows fetch next 9 rows only
-
-delete from Info
-where info_id =?
-delete from Product
-where product_id=?
 create table [OrderDetails](
 	[od_id] int not null identity(1,1) primary key,
 	[order_id]  int  ,
 	[product_id] int ,
 	[price] float ,
 	[quantity] int ,
-	[total_money] float ,
 	FOREIGN KEY (order_id) REFERENCES [Order](order_id),
 	FOREIGN KEY (product_id) REFERENCES [Product](product_id) 
 );
+
+select * from [OrderDetails]
 --drop table OrderDetails
+--alter table OrderDetails drop column total_money
+
 
 create table [Info](
 	[info_id] int not null  primary key,
@@ -140,9 +127,7 @@ insert into [Brand](brand_name,brand_address)values('Elements',N'Singapore')
 insert into [Brand](brand_name,brand_address)values('Anna',N'Việt Nam')
 --select * from Brand
 
-insert into [Account] values ('admin','admin','admin@gmail.com',1)
-insert into [Account] values ('test','test','test@gmail.com',2)
-select * from Account
+
 
 --Product
 --Kính râm
@@ -234,14 +219,3 @@ insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('35',N'Silicone Hydrogel',N'Xám pha nâu rêu',N'KÍNH ÁP TRÒNG – TH359',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TH-359.png')
 insert into [Info](info_id,material,color,title,description,imageUrl1,imageUrl2,imageUrl3) values ('36',N'Silicone Hydrogel',N'Xám tro',N'KÍNH ÁP TRÒNG – TN159',N'Được làm bằng chất liệu Silicone Hydrogel hỗ trợ mắt thở tiên tiến nhất hiện nay. Với kính áp tròng chất liệu Silicone Hydrogel bạn có thể an tâm sử dụng đến 12 tiếng mỗi ngày, đảm bảo tầm nhìn cho mọi hoạt động trong ngày của bạn.','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png','https://kinhmatanna.com/wp-content/uploads/2023/04/TN159.png')
 
-
-select info_id, material, color, title,price, description,imageUrl1, imageUrl2, imageUrl3 
-from Info i, Product p
-where i.info_id=p.product_id
-and info_id=1
-
-select * from Product p, Brand b
-where p.brand_id=b.brand_id
-
-select * from Product
-where product_name like ?

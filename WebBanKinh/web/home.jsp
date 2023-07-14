@@ -161,13 +161,13 @@
                                                 <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
                                             </li>
                                             <li>
-                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                                <a href="buy?pid=${o.id}&num=1"><i class="tf-ion-android-cart"></i></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h4><a href="product-single.html">${o.name}</a></h4>
+                                    <h4><a href="detail?pid=${o.id}">${o.name}</a></h4>
                                     <p class="price">$${o.price}</p>
                                 </div>
                             </div>

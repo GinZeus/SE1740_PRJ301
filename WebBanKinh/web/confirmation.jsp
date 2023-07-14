@@ -56,9 +56,9 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="block text-center">
                             <i class="tf-ion-android-checkmark-circle"></i>
-                            <h2 class="text-center">Thank you! For your payment</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, sed.</p>
-                            <a href="home.jsp" class="btn btn-main mt-20">Continue Shopping</a>
+                            <h2 class="text-center">Thanh toán thành công!</h2>
+                            <p>Cảm ơn bạn đã mua hàng. Chúc bạn một ngày vui vẻ :></p>
+                            <a href="homecontroll" class="btn btn-main mt-20">Tiếp tục mua sắm</a>
                         </div>
                     </div>
                 </div>

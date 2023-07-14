@@ -35,6 +35,7 @@
                                                 <ul>
                                                     <li><a href="manageproduct" class="btn btn-small btn-solid-border" style="width: 100%">Quản lý sản phẩm</a></li> 
                                                     <li><a href="manageaccount" class="btn btn-small btn-solid-border" style="width: 100%">Quản  lý tài khoản</a></li> 
+                                                    <li><a href="manageorder" class="btn btn-small btn-solid-border" style="width: 100%">Quản lý đơn hàng</a></li> 
                                                 </ul>
                                             </div>
                                         </div><!-- / .row -->
@@ -68,51 +69,9 @@
                     <div class="col-md-4 col-xs-12 col-sm-4">
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
-                            <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Giỏ hàng</a>
-                                <div class="dropdown-menu cart-dropdown">
-                                    <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-                                    <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-
-                                    <div class="cart-summary">
-                                        <span>Tổng cộng</span>
-                                        <span class="total-price">$1799.00</span>
-                                    </div>
-                                    <ul class="text-center cart-buttons">
-                                        <li><a href="cart.jsp" class="btn btn-small">Xem giỏ hàng</a></li>
-                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Checkout</a></li>
-                                    </ul>
-                                </div>
-
+                            <li class="">
+                                <a href="cart" ><i
+                                        class="tf-ion-android-cart"></i>Giỏ hàng ${requestScope.size}</a>
                             </li><!-- / Cart -->
 
                             <!-- Search -->
@@ -147,7 +106,7 @@
                                                     <li><a href="signup.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Đăng ký</a></li>
                                                     </c:if>
                                                     <c:if test="${sessionScope.account!=null}">
-                                                    <li><a href="profile-details.jsp" class="btn btn-small btn-solid-border" style="width: 100%">Thông tin</a></li>
+                                                    <li><a href="profile" class="btn btn-small btn-solid-border" style="width: 100%">Thông tin</a></li>
                                                     <li><a href="logout" class="btn btn-small btn-solid-border" style="width: 100%">Đăng xuất</a></li>
                                                     </c:if>
 

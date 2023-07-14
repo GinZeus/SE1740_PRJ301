@@ -44,127 +44,120 @@
     <body id="body">
         <!-- Start Top Header Bar -->
         <jsp:include page="header/headerlevel1.jsp"></jsp:include>
-        <!-- End Top Header Bar -->
+            <!-- End Top Header Bar -->
 
-        <!-- Start Main Menu Section -->
+            <!-- Start Main Menu Section -->
         <jsp:include page="header/menu1.jsp"></jsp:include>
-        <!-- <!-- End Main Menu Section -->
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="content">
-                            <h1 class="page-name">Checkout</h1>
-                            <ol class="breadcrumb">
-                                <li><a href="home.jsp">Home</a></li>
-                                <li class="active">Checkout</li>
-                            </ol>
+            <!-- <!-- End Main Menu Section -->
+            <section class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content">
+                                <h1 class="page-name">Checkout</h1>
+                                <ol class="breadcrumb">
+                                    <li><a href="home.jsp">Home</a></li>
+                                    <li class="active">Checkout</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <div class="page-wrapper">
-            <div class="checkout shopping">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="block billing-details">
-                                <h4 class="widget-title">Billing Details</h4>
-                                <form class="checkout-form">
-                                    <div class="form-group">
-                                        <label for="full_name">Full Name</label>
-                                        <input type="text" class="form-control" id="full_name" placeholder="">
+            </section>
+            <div class="page-wrapper">
+                <div class="checkout shopping">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="block billing-details">
+                                    <h4 class="widget-title">Thông tin đơn hàng</h4>
+                                    <form class="checkout-form" action="checkout">
+                                        <div class="form-group" hidden>
+                                            <input hidden name="id" type="text" class="form-control" id="full_name" value="${sessionScope.account.id}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="user_address">Address</label>
-                                        <input type="text" class="form-control" id="user_address" placeholder="">
+                                        <label for="full_name">Họ và tên</label>
+                                        <input name="name" type="text" class="form-control" id="full_name" value="${sessionScope.account.fullname}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user_address">Địa chỉ</label>
+                                        <input name="address" type="text" class="form-control" id="user_address" value="${sessionScope.account.address}">
                                     </div>
                                     <div class="checkout-country-code clearfix">
                                         <div class="form-group">
-                                            <label for="user_post_code">Zip Code</label>
-                                            <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
+                                            <label for="user_post_code">Email</label>
+                                            <input type="text" class="form-control" id="user_post_email" name="email" value="${sessionScope.account.email}">
                                         </div>
                                         <div class="form-group" >
-                                            <label for="user_city">City</label>
-                                            <input type="text" class="form-control" id="user_city" name="city" value="">
+                                            <label for="user_city">Phone</label>
+                                            <input type="text" class="form-control" id="user_phone" name="phone" value="${sessionScope.account.phone}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user_country">Country</label>
-                                        <input type="text" class="form-control" id="user_country" placeholder="">
+                                        <label for="user_country">Note</label>
+                                        <input type="text" class="form-control" id="user_note" placeholder="" name="note">
                                     </div>
+                                    <button type="submit" class="btn btn-main mt-20">Đặt hàng</button>
                                 </form>
                             </div>
                             <div class="block">
-                                <h4 class="widget-title">Payment Method</h4>
-                                <p>Credit Cart Details (Secure payment)</p>
+                                <h4 class="widget-title">Phương thức thanh toán</h4>
                                 <div class="checkout-product-details">
                                     <div class="payment">
                                         <div class="card-details">
                                             <form  class="checkout-form">
-                                                <div class="form-group">
-                                                    <label for="card-number">Card Number <span class="required">*</span></label>
-                                                    <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
-                                                </div>
-                                                <div class="form-group half-width padding-right">
-                                                    <label for="card-expiry">Expiry (MM/YY) <span class="required">*</span></label>
-                                                    <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
-                                                </div>
-                                                <div class="form-group half-width padding-left">
-                                                    <label for="card-cvc">Card Code <span class="required">*</span></label>
-                                                    <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
-                                                </div>
-                                                <a href="confirmation.jsp" class="btn btn-main mt-20">Place Order</a >
+                                                <input name="gender" type="radio" value="card" />Chuyển khoản<br/>
+                                                <input name="gender" type="radio" value="money" checked/>Tiền mặt<br/>
+
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="product-checkout-details">
-                                <div class="block">
-                                    <h4 class="widget-title">Order Summary</h4>
-                                    <div class="media product-card">
-                                        <a class="pull-left" href="product-single.html">
-                                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="product-single.html">Ambassador Heritage 1921</a></h4>
-                                            <p class="price">1 x $249</p>
-                                            <span class="remove" >Remove</span>
-                                        </div>
-                                    </div>
-                                    <div class="discount-code">
-                                        <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p>
-                                    </div>
-                                    <ul class="summary-prices">
-                                        <li>
-                                            <span>Subtotal:</span>
-                                            <span class="price">$190</span>
-                                        </li>
-                                        <li>
-                                            <span>Shipping:</span>
-                                            <span>Free</span>
-                                        </li>
-                                    </ul>
-                                    <div class="summary-total">
-                                        <span>Total</span>
-                                        <span>$250</span>
-                                    </div>
-                                    <div class="verified-icon">
-                                        <img src="images/shop/verified.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--                        <div class="col-md-4">
+                                                    <div class="product-checkout-details">
+                                                        <div class="block">
+                                                            <h4 class="widget-title">Order Summary</h4>
+                                                            <div class="media product-card">
+                                                                <a class="pull-left" href="product-single.html">
+                                                                    <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <h4 class="media-heading"><a href="product-single.html">Ambassador Heritage 1921</a></h4>
+                                                                    <p class="price">1 x $249</p>
+                                                                    <span class="remove" >Remove</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="discount-code">
+                                                                <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p>
+                                                            </div>
+                                                            <ul class="summary-prices">
+                                                                <li>
+                                                                    <span>Subtotal:</span>
+                                                                    <span class="price">$190</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span>Shipping:</span>
+                                                                    <span>Free</span>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="summary-total">
+                                                                <span>Total</span>
+                                                                <span>$250</span>
+                                                            </div>
+                                                            <div class="verified-icon">
+                                                                <img src="images/shop/verified.png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
                     </div>
                 </div>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
+<!--        <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -177,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <footer>
             <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
