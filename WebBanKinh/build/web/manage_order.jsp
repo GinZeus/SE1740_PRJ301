@@ -77,10 +77,13 @@
                                     <c:if test="${o.status == 3 }">
                                         Ðã giao
                                     </c:if>
+                                        <c:if test="${o.status == 4 }">
+                                        Đã hủy
+                                    </c:if>
                                 </td>
                                 <td>${o.total_money}</td>
                                 <td>
-                                    <a href="#" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="loadorder?oid=${o.order_id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a onclick="confirmDelete(${o.order_id})" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 
                                 </td>

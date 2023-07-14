@@ -119,6 +119,14 @@
         <servlet-name>DeleteOrderControl</servlet-name>
         <servlet-class>Controller.DeleteOrderControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadOrderControl</servlet-name>
+        <servlet-class>Controller.LoadOrderControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditOrderControl</servlet-name>
+        <servlet-class>Controller.EditOrderControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -234,6 +242,14 @@
     <servlet-mapping>
         <servlet-name>DeleteOrderControl</servlet-name>
         <url-pattern>/deleteorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadOrderControl</servlet-name>
+        <url-pattern>/loadorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditOrderControl</servlet-name>
+        <url-pattern>/editorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

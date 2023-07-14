@@ -188,6 +188,59 @@ public class ProductDAL extends BaseDAO {
         }
     }
 
+    public Order getOrderById(String oid) {
+
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Order]"
+                    + "WHERE order_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, oid);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order ord = new Order();
+                ord.setOrder_id(rs.getInt("order_id"));
+                ord.setUser_id(rs.getInt("user_id"));
+                ord.setFullname(rs.getNString("fullname"));
+                ord.setAddress(rs.getNString("address"));
+                ord.setEmail(rs.getString("email"));
+                ord.setPhone_number(rs.getString("phone_number"));
+                ord.setNote(rs.getNString("note"));
+                ord.setDate(rs.getDate("oder_date"));
+                ord.setStatus(rs.getInt("status"));
+                ord.setTotal_money(rs.getDouble("total_money"));
+                return ord;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void editOrder(String fullname, String address, String email, String phone, String note, String status, String oid) {
+        try {
+            String sql = "update [Order]\n"
+                    + "set [fullname]= ?,\n"
+                    + "[address]=?,\n"
+                    + "[email]=?,\n"
+                    + "[phone_number]=?,\n"
+                    + "[note]=?,\n"
+                    + "[status]=?\n"
+                    + "where order_id= ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, fullname);
+            statement.setString(2, address);
+            statement.setString(3, email);
+            statement.setString(4, phone);
+            statement.setString(5, note);
+            statement.setString(6, status);
+            statement.setString(7, oid);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public ArrayList<Product> getTop6Products() {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -655,10 +708,11 @@ public class ProductDAL extends BaseDAO {
 //        for(Order o:ord){
 //            System.out.println(o);
 //        }
-        ArrayList<Product> pcid = p.pagingProduct(1);
-        for (Product o : pcid) {
-            System.out.println(pcid);
-        }
+//        ArrayList<Product> pcid = p.pagingProduct(1);
+//        for (Product o : pcid) {
+//            System.out.println(pcid);
+//        }
+        p.editOrder("dat123", "vietnam", "dat2572003@gmail.com", "12345", "aloalo", "4", "3");
     }
 
 }
