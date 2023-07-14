@@ -48,7 +48,7 @@ create table [Order](
 	FOREIGN KEY (user_id) REFERENCES [Account](id) 
 );
 --
-select * from [Order]
+select * from [Order] where [order_id]=3
 --drop table [Order]
 
 insert into [Order] values ('1',N'dat',N'viet nam','1@gmail.com','1234','test',GETDATE(),'1','20')

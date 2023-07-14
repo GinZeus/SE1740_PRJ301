@@ -34,10 +34,6 @@
                         <div class="col-sm-6">
                             <a href="homecontroll" style="color: white; text-decoration: none"><h2>Manage <b>Order</b></h2></a>
                         </div>
-                        <div class="col-sm-6">
-                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Account</span></a>
-
-                        </div>
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
@@ -96,7 +92,7 @@
             </div>
         </div>
         <!-- Edit Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade">
+<!--        <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="addaccount" method="post">
@@ -138,7 +134,7 @@
                     </form>
                 </div>
             </div>
-        </div><!--
+        </div>
          Edit Modal HTML -->        
         <!--        <div id="editEmployeeModal" class="modal fade">
                     <div class="modal-dialog">
