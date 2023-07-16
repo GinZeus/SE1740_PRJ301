@@ -127,6 +127,10 @@
         <servlet-name>EditOrderControl</servlet-name>
         <servlet-class>Controller.EditOrderControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyOrder</servlet-name>
+        <servlet-class>Controller.MyOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/homecontroll</url-pattern>
@@ -250,6 +254,10 @@
     <servlet-mapping>
         <servlet-name>EditOrderControl</servlet-name>
         <url-pattern>/editorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyOrder</servlet-name>
+        <url-pattern>/myorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

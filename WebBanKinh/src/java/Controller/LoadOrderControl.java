@@ -11,6 +11,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Brand;
+import model.Category;
 import model.Order;
 
 /**
@@ -36,6 +39,10 @@ public class LoadOrderControl extends HttpServlet {
         Order ord=new Order();
         ord=dao.getOrderById(id);
         request.setAttribute("detail", ord);
+        ArrayList<Category> categories = dao.getAllCategory();
+        request.setAttribute("listC", categories);
+        ArrayList<Brand> brands = dao.getAllBrand();
+        request.setAttribute("listB", brands);
         RequestDispatcher dispatcher1 = request.getRequestDispatcher("editorder.jsp");
         dispatcher1.forward(request, response);
     }

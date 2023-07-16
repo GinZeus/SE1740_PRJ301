@@ -37,8 +37,9 @@ public class EditProductControl extends HttpServlet {
         String price = request.getParameter("price");
         String category = request.getParameter("category");
         String brand = request.getParameter("brand");
+        String status = request.getParameter("status");
         ProductDAL dao = new ProductDAL();
-        dao.editProduct(name, image, price, category, brand, pid);
+        dao.editProduct(name, image, price, category, brand, status, pid);
         response.sendRedirect("manageproduct");
     }
 

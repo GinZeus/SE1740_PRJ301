@@ -14,7 +14,26 @@
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round'>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="css/manageproduct.css">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="css/manageproduct.css">
+        <meta name="theme-name" content="aviato" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon1.png" />
+
+        <!-- Themefisher Icon font -->
+        <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+        <!-- bootstrap.min css -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+
+        <!-- Animate css -->
+        <link rel="stylesheet" href="plugins/animate/animate.css">
+        <!-- Slick Carousel -->
+        <link rel="stylesheet" href="plugins/slick/slick.css">
+        <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript">
             function confirmDelete(id) {
                 if (confirm("Xóa sản phẩm id=" + id + "?")) {
@@ -28,6 +47,8 @@
     <body>
         <!-- partial:index.partial.html -->
         <div class="container">
+            <jsp:include page="header/headerlevel1.jsp"></jsp:include>
+            <jsp:include page="header/menu1.jsp"></jsp:include>
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -51,6 +72,7 @@
                             <th>Price</th>
                             <th>Image</th>
                             <th>Create Time</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +85,14 @@
                             <td>${o.price}</td>
                             <td><img src="${o.imageurl}" alt="alt" style="width: 50px; height: 50px"/></td>
                             <td>${o.createTime}</td>
+                            <td>
+                                    <c:if test="${o.status == 0 }">
+                                        Còn hàng
+                                    </c:if>
+                                    <c:if test="${o.status == 1 }">
+                                        Hết hàng
+                                    </c:if>
+                                </td>
                             <td>
                                 <a href="loadproduct?pid=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a onclick="confirmDelete(${o.id})" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -132,7 +162,10 @@
                     </form>
                 </div>
             </div>
-        </div><!--
+        </div>
+        <footer>
+            <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
+        </footer><!--
          Edit Modal HTML -->        
 <!--        <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">

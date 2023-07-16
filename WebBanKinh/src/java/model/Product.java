@@ -19,11 +19,12 @@ public class Product {
     private String imageurl;
     private Date createTime;
     private int deleted;
+    private int status;
     
     public Product(){
     }
 
-    public Product(int id, String name, int category_id, int brand_id, double price, String imageurl, Date createTime, int deleted) {
+    public Product(int id, String name, int category_id, int brand_id, double price, String imageurl, Date createTime, int deleted, int status) {
         this.id = id;
         this.name = name;
         this.category_id = category_id;
@@ -32,7 +33,17 @@ public class Product {
         this.imageurl = imageurl;
         this.createTime = createTime;
         this.deleted = deleted;
+        this.status = status;
     }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    
 
     public int getDeleted() {
         return deleted;

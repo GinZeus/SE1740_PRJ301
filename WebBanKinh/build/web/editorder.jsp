@@ -20,6 +20,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/manageproduct.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon1.png" />
+
+        <!-- Themefisher Icon font -->
+        <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+        <!-- bootstrap.min css -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+
+        <!-- Animate css -->
+        <link rel="stylesheet" href="plugins/animate/animate.css">
+        <!-- Slick Carousel -->
+        <link rel="stylesheet" href="plugins/slick/slick.css">
+        <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
         <style>
             img{
                 width: 200px;
@@ -28,29 +43,34 @@
         </style>
     <body>
         <div class="container">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>Edit <b>Product</b></h2>
-                        </div>
-                        <div class="col-sm-6">
+            <jsp:include page="header/headerlevel1.jsp"></jsp:include>
+                <!-- End Top Header Bar -->
+
+                <!-- Start Main Menu Section -->
+            <jsp:include page="header/menu1.jsp"></jsp:include>
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Edit <b>Order</b></h2>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="editEmployeeModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="editorder" method="post">
-                            <div class="modal-header">						
-                                <h4 class="modal-title">Add Product</h4>
-                                <a href="manageorder" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-                            </div>
-                            <div class="modal-body">					
-                                <div class="form-group">
-                                    <label>Order ID</label>
-                                    <input value="${detail.order_id}" name="order_id" type="text" class="form-control" required readonly>
+                <div id="editEmployeeModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="editorder" method="post">
+                                <div class="modal-header">						
+                                    <h4 class="modal-title">Edit Order</h4>
+                                    <a href="manageorder" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                                </div>
+                                <div class="modal-body">					
+                                    <div class="form-group">
+                                        <label>Order ID</label>
+                                        <input value="${detail.order_id}" name="order_id" type="text" class="form-control" required readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>User ID</label>
@@ -101,7 +121,9 @@
             </div>
 
         </div>
-
+        <footer>
+            <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
+        </footer>
 
 
     </body>

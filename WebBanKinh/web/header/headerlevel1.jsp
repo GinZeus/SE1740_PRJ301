@@ -107,6 +107,7 @@
                                                     </c:if>
                                                     <c:if test="${sessionScope.account!=null}">
                                                     <li><a href="profile" class="btn btn-small btn-solid-border" style="width: 100%">Thông tin</a></li>
+                                                    <li><a href="myorder" class="btn btn-small btn-solid-border" style="width: 100%">Đơn hàng</a></li>
                                                     <li><a href="logout" class="btn btn-small btn-solid-border" style="width: 100%">Đăng xuất</a></li>
                                                     </c:if>
 

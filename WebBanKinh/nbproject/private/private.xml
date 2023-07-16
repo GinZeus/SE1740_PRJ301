@@ -3,17 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/Controller/ManageOrderControl.java</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/web/manage_order.jsp</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/web/manage_product.jsp</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/Controller/ManageProductControl.java</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/web/editorder.jsp</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/Controller/LoadProductControl.java</file>
             <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/DAL/ProductDAL.java</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/web/shop.jsp</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/web/editproduct.jsp</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/Controller/EditOrderControl.java</file>
-            <file>file:/D:/code/PRJ/SE1740_PRJ301/WebBanKinh/src/java/Controller/DeleteOrderControl.java</file>
         </group>
     </open-files>
 </project-private>

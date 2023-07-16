@@ -20,7 +20,7 @@ create table [Account](
 
 
 select * from Account
-
+select * from Product
 select top 4 * from Product
 order by NEWID()
 
@@ -71,8 +71,19 @@ create table [Product](
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id)	 
 );
 select * from Product where deleted = 0
+ alter table Product
+ add [status] int
 
 
+ update [Product]
+set [product_name]='KR – RCT056',
+[category_id]='1',
+[brand_id]='1',
+[price]='28',
+[imageUrl]='https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-120.jpg',
+[create_time]=GETDATE(),
+[status]='1'
+where product_id='3'
 
 create table [OrderDetails](
 	[od_id] int not null identity(1,1) primary key,

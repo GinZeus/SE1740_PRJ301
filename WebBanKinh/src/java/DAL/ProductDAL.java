@@ -44,6 +44,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -216,6 +217,34 @@ public class ProductDAL extends BaseDAO {
         }
         return null;
     }
+    public ArrayList<Order> getOrderByUserID(int uid) {
+        ArrayList<Order> orders = new ArrayList<>();
+        try {
+            String sql = "SELECT *"
+                    + "  FROM [Order]"
+                    + "WHERE user_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, uid);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order ord = new Order();
+                ord.setOrder_id(rs.getInt("order_id"));
+                ord.setUser_id(rs.getInt("user_id"));
+                ord.setFullname(rs.getNString("fullname"));
+                ord.setAddress(rs.getNString("address"));
+                ord.setEmail(rs.getString("email"));
+                ord.setPhone_number(rs.getString("phone_number"));
+                ord.setNote(rs.getNString("note"));
+                ord.setDate(rs.getDate("oder_date"));
+                ord.setStatus(rs.getInt("status"));
+                ord.setTotal_money(rs.getDouble("total_money"));
+                orders.add(ord);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return orders;
+    }
     
     public void editOrder(String fullname, String address, String email, String phone, String note, String status, String oid) {
         try {
@@ -313,6 +342,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -341,6 +371,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -369,6 +400,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 products.add(s);
             }
         } catch (SQLException ex) {
@@ -436,6 +468,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 return s;
             }
         } catch (SQLException ex) {
@@ -561,8 +594,8 @@ public class ProductDAL extends BaseDAO {
     public void insertProduct(String name, String image, String price, String category, String brand) {
         try {
             String sql = "insert into [Product]"
-                    + "(product_name,category_id,brand_id,price,imageUrl,create_time,deleted)"
-                    + " values(?,?,?,?,?,GETDATE(),'0')";
+                    + "(product_name,category_id,brand_id,price,imageUrl,create_time,deleted,status)"
+                    + " values(?,?,?,?,?,GETDATE(),'0','0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, category);
@@ -595,7 +628,7 @@ public class ProductDAL extends BaseDAO {
         }
     }
 
-    public void editProduct(String name, String image, String price, String category, String brand, String pid) {
+    public void editProduct(String name, String image, String price, String category, String brand, String status, String pid) {
         try {
             String sql = "update [Product]"
                     + "set [product_name]=?,"
@@ -603,7 +636,8 @@ public class ProductDAL extends BaseDAO {
                     + "[brand_id]=?,"
                     + "[price]=?,"
                     + "[imageUrl]=?,"
-                    + "[create_time]=GETDATE()"
+                    + "[create_time]=GETDATE(),"
+                    + "[status]=? "
                     + "where product_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, name);
@@ -611,7 +645,8 @@ public class ProductDAL extends BaseDAO {
             statement.setString(3, brand);
             statement.setString(4, price);
             statement.setString(5, image);
-            statement.setString(6, pid);
+            statement.setString(6, status);
+            statement.setString(7, pid);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAL.class.getName()).log(Level.SEVERE, null, ex);
@@ -651,6 +686,7 @@ public class ProductDAL extends BaseDAO {
                 s.setPrice(rs.getDouble("price"));
                 s.setCreateTime(rs.getDate("create_time"));
                 s.setDeleted(rs.getInt("deleted"));
+                s.setStatus(rs.getInt("status"));
                 list.add(s);
             }
         } catch (SQLException ex) {
@@ -704,15 +740,16 @@ public class ProductDAL extends BaseDAO {
 
     public static void main(String[] args) {
         ProductDAL p = new ProductDAL();
-//        ArrayList<Order> ord=p.getAllOrder();
-//        for(Order o:ord){
-//            System.out.println(o);
-//        }
+        ArrayList<Order> ord=p.getOrderByUserID(1);
+        for(Order o:ord){
+            System.out.println(o);
+        }
 //        ArrayList<Product> pcid = p.pagingProduct(1);
 //        for (Product o : pcid) {
 //            System.out.println(pcid);
-//        }
-        p.editOrder("dat123", "vietnam", "dat2572003@gmail.com", "12345", "aloalo", "4", "3");
+      
+//        p.editProduct("KR - RCT", "https://kinhmatanna.com/wp-content/uploads/2023/05/Anna-120.jpg", "29", "1", "1", "1", "3");
+
     }
 
 }
